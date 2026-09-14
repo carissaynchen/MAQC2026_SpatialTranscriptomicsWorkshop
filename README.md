@@ -13,7 +13,7 @@ In the commandline,
 
 `docker pull ghcr.io/carissaynchen/docker_img:latest`
 
-3. Run the container, where "$PWD" is the folder path of the repository.
+3. Run the container, where `"$PWD"` is the folder path of the repository.
 
 ```
 docker run \
