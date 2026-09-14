@@ -1,0 +1,14 @@
+Dockerfile
+  h_c24d027b38481a 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "e815cfda7bc59826fe71238a9ca1d2f51ab6d963",
+  "prompts": {},
+  "humans": {
+    "h_c24d027b38481a": {
+      "author": "Riccardo Ceccaroni <riccardo.ceccaroni.95@gmail.com>"
+    }
+  }
+}
