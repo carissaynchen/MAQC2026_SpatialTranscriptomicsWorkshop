@@ -1,8 +1,14 @@
-# MAQC2026 Spatial Transcriptomics Workshop
+# Introduction
+
+In this workshop, we will cover biases associated with spatial transcriptomics platforms and discuss key considerations for designing 'good' spatial experiments. Participants will examine essential processing and quality-control measures for image-based spatial transcriptomics. Then, we will introduce analytical approaches for investigating the tissue microenvironment, focusing on cellular neighbourhoods, spatial co-localisation, and interactions among cell types and tissue structures.
+
+By the end of the workshop, participants will be equipped to make informed decisions about experimental design, and an understanding of emerging areas in spatially-aware computational method development leveraging bioinformatics and deep learning/foundation model approaches to characterise fundamental biological mechanisms.
+
+## Tutorial set-up
 
 All required packages and environment to run the workshop material can be accessed using a local Docker container. To do so, ensure that you have a containerisation software such as [OrbStack](https://orbstack.dev/) or [Docker](https://www.docker.com/products/docker-desktop/) installed.
 
-## Creating a docker container
+### Creating a docker container
 In the commandline,
 
 1. Clone the GitHub repository.
@@ -30,5 +36,4 @@ docker run \
    | Username | Password |
    |---|---|
    | rstudio | bioc |
-
 
