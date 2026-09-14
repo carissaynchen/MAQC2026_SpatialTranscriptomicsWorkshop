@@ -3,15 +3,17 @@
 All required packages and environment to run the workshop material can be accessed using a local Docker container. To do so, ensure that you have a containerisation software such as [OrbStack](https://orbstack.dev/) or [Docker](https://www.docker.com/products/docker-desktop/) installed.
 
 ## Creating a docker container
+In the commandline,
+
 1. Clone the GitHub repository.
    
 `git clone https://github.com/carissaynchen/MAQC2026_SpatialTranscriptomicsWorkshop.git`
 
-2. Pull the latest version of the docker image using the commandline
+2. Pull the latest version of the docker image.
 
 `docker pull ghcr.io/carissaynchen/docker_img:latest`
 
-3. Run the container, where the "$PWD" is the folder path of the repository.
+3. Run the container, where "$PWD" is the folder path of the repository.
 
 ```
 docker run \
