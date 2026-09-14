@@ -1,0 +1,14 @@
+.github/workflows/docker.yml
+  h_c24d027b38481a 20-25,27,34,37
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "034de1a51b2fed2e422a38872ef7a9e87194445b",
+  "prompts": {},
+  "humans": {
+    "h_c24d027b38481a": {
+      "author": "Riccardo Ceccaroni <riccardo.ceccaroni.95@gmail.com>"
+    }
+  }
+}
