@@ -7,3 +7,6 @@ COPY --chown=rstudio:rstudio workshop/ /workshop/
 RUN chown -R rstudio:rstudio /workshop
 
 WORKDIR /workshop
+
+RUN mkdir -p /etc/rstudio && \
+    echo 'session-default-working-dir=/workshop' >> /etc/rstudio/rsession.conf
