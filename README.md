@@ -1,10 +1,26 @@
 # Introduction
 
-In this workshop, we will cover biases associated with spatial transcriptomics platforms and discuss key considerations for designing 'good' spatial experiments. Participants will examine essential processing and quality-control measures for image-based spatial transcriptomics. Then, we will introduce analytical approaches for investigating the tissue microenvironment, focusing on cellular neighbourhoods, spatial co-localisation, and interactions among cell types and tissue structures.
+In this workshop, we will cover biases associated with spatial transcriptomics platforms and discuss key considerations for designing 'good' spatial experiments. Participants will examine essential processing and quality-control measures for **image-based spatial transcriptomics**. Then, we will introduce analytical approaches for investigating the tissue microenvironment, focusing on cellular neighbourhoods, spatial co-localisation, and interactions among cell types and tissue structures.
 
-By the end of the workshop, participants will be equipped to make informed decisions about experimental design, and an understanding of emerging areas in spatially-aware computational method development leveraging bioinformatics and deep learning/foundation model approaches to characterise fundamental biological mechanisms.
+By the end of the workshop, participants will be equipped to make **informed decisions** about experimental design, and an **understanding of emerging areas** in spatially-aware computational method development leveraging bioinformatics and deep learning/foundation model approaches to characterise fundamental biological mechanisms.
+
+### Schedule
+
+| Time | Section |
+|---:|---|
+| **5 min** | Docker set-up |
+| **20 min** | **Overview**: Introduction, biases in spatial biotechnologies and considerations for experimental design |
+| **20 min** | **Tutorial**: Pre-processing & QC for imaged-based spatial transcriptomics |
+| **10 min** | **Overview**: Investigating the tissue microenvironment & future outlook |
+| **35 min** | **Tutorial**: Neighbourhood & co-localisation analyses |
+
+**Total: 60-90 minutes**
+
+## Workshop slides
 
 ## Tutorial set-up
+
+The session will cover basic spatial transcriptomics analysis using the Bioconductor ecosystem. 
 
 All required packages and environment to run the workshop material can be accessed using a local Docker container. To do so, ensure that you have a containerisation software such as [OrbStack](https://orbstack.dev/) or [Docker](https://www.docker.com/products/docker-desktop/) installed.
 
@@ -36,4 +52,9 @@ docker run \
    | Username | Password |
    |---|---|
    | rstudio | bioc |
+
+## Acknowledgements
+
+The workshop borrows existing material and explanations from the
+[Orchestrating Spatial Transcriptomics with Bioconductor (OSTA)]([https://bioconductor.org/books/release/OSCA/)(https://bioconductor.org/books/release/OSTA/) book.
 
