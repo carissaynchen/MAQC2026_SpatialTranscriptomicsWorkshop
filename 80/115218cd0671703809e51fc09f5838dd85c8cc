@@ -1,0 +1,16 @@
+Dockerfile
+  h_c24d027b38481a 5
+install_packages.R
+  h_c24d027b38481a 1-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "80115218cd0671703809e51fc09f5838dd85c8cc",
+  "prompts": {},
+  "humans": {
+    "h_c24d027b38481a": {
+      "author": "Riccardo Ceccaroni <riccardo.ceccaroni.95@gmail.com>"
+    }
+  }
+}
