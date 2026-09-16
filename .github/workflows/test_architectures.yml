@@ -1,0 +1,21 @@
+name: Test multi-architectures
+
+on:
+  workflow_dispatch:
+
+jobs:
+  amd64:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: |
+          echo "AMD64 runner"
+          uname -m
+          nproc
+
+  arm64:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - run: |
+          echo "ARM64 runner"
+          uname -m
+          nproc
