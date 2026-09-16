@@ -6,7 +6,7 @@ RUN Rscript /tmp/install_packages.R
 COPY --chown=rstudio:rstudio workshop/ /workshop/
 RUN chown -R rstudio:rstudio /workshop
 
-WORKDIR /workshop
+WORKDIR /tutorial
 
 RUN mkdir -p /etc/rstudio && \
-    echo 'session-default-working-dir=/workshop' >> /etc/rstudio/rsession.conf
+    echo 'session-default-working-dir=/tutorial' >> /etc/rstudio/rsession.conf
