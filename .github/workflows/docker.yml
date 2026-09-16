@@ -77,6 +77,9 @@ jobs:
     runs-on: ubuntu-24.04
 
     steps:
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
       - name: Login to GHCR
         uses: docker/login-action@v3
         with:
@@ -84,11 +87,14 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create and push multi-architecture manifest
+      - name: Create and push multi-architecture image
         run: |
-          docker manifest create \
-            ${{ env.IMAGE_NAME }}:latest \
-            ${{ env.IMAGE_NAME }}:amd64 \
-            ${{ env.IMAGE_NAME }}:arm64
+          docker buildx imagetools create \
+            --tag "${{ env.IMAGE_NAME }}:latest" \
+            "${{ env.IMAGE_NAME }}:amd64" \
+            "${{ env.IMAGE_NAME }}:arm64"
 
-          docker manifest push ${{ env.IMAGE_NAME }}:latest
+      - name: Inspect multi-architecture image
+        run: |
+          docker buildx imagetools inspect \
+            "${{ env.IMAGE_NAME }}:latest"
