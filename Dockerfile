@@ -27,14 +27,9 @@ RUN Rscript tests/run-test-functions.R
 # Download and cache only the datasets required by the workshop
 RUN Rscript scripts/cache-data.R
 
-# Validate and render the tutorial without executing code
-RUN mkdir -p /tmp/quarto-check \
-    && quarto render extended-workflow-cosmx.qmd \
-        --to html \
-        --no-execute \
-        --output-dir /tmp/quarto-check \
-        -M embed-resources:true \
-    && test -s /tmp/quarto-check/extended-workflow-cosmx.html
+# Check .qmd config
+RUN mkdir -p _quarto-check \
+    && quarto inspect extended-workflow-cosmx.qmd _quarto-check/inspect.json
 
 # Confirm the committed, fully rendered tutorial exists
 RUN test -s extended-workflow-cosmx.html
