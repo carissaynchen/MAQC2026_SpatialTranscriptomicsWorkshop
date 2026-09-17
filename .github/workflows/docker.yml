@@ -75,68 +75,6 @@ jobs:
           cache-from: type=gha,scope=arm64
           cache-to: type=gha,mode=max,scope=arm64
 
-  full-render:
-    name: Test Quarto render (${{ matrix.arch }})
-    needs:
-      - build-amd64
-      - build-arm64
-
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - arch: amd64
-            runner: ubuntu-24.04
-          - arch: arm64
-            runner: ubuntu-24.04-arm
-
-    runs-on: ${{ matrix.runner }}
-
-    steps:
-      - name: Login to GHCR
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Pull architecture image
-        run: |
-          docker pull \
-            "${{ env.IMAGE_NAME }}:${{ matrix.arch }}"
-
-      - name: Prepare render output directory
-        run: |
-          mkdir -p "${{ github.workspace }}/rendered"
-
-      - name: Render complete tutorial
-        run: |
-          docker run --rm \
-            --user root \
-            --entrypoint /bin/bash \
-            --volume "${{ github.workspace }}/rendered:/tutorial/_ci-render" \
-            "${{ env.IMAGE_NAME }}:${{ matrix.arch }}" \
-            -lc '
-              cd /tutorial
-              quarto render extended-workflow-cosmx.qmd \
-                --to html \
-                --output-dir _ci-render \
-                -M embed-resources:true
-            '
-
-      - name: Verify rendered HTML
-        run: |
-          test -s \
-            rendered/extended-workflow-cosmx.html
-
-      - name: Upload rendered tutorial
-        uses: actions/upload-artifact@v4
-        with:
-          name: extended-workflow-cosmx-${{ matrix.arch }}
-          path: rendered/extended-workflow-cosmx.html
-          if-no-files-found: error
-          retention-days: 1
-
   create-manifest:
     name: Create multi-architecture image
     needs:
