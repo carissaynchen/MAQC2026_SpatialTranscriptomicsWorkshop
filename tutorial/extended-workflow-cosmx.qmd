@@ -748,7 +748,15 @@ wrap_plots(ps, guides="collect") &
 
 ## Neighborhood-based gene expression analyses
 
-We start by creating a cell neighborhood graph, based on a distance threshold of 50 microns. To do so, we use the `r BiocStyle::Biocpkg("SpatialFeatureExperiment")` package [@Moses2023-Voyager]. The `findSpatialNeighbors` function, using the `poly2nb` method builds a neighbours list based on polygons with contiguous boundaries, that is sharing one or more boundary point. Boundary points less than `snap` distance apart  are considered to indicate contiguity; used both to find candidate and actual neighbours for planar geometries. The default condition to be considered a 'neighbour cell' requires that a single shared boundary point meets the contiguity condition.
+We start by creating a cell neighborhood graph, based on a distance threshold of 50 microns. To do so, we use the `r BiocStyle::Biocpkg("SpatialFeatureExperiment")` package [@Moses2023-Voyager]
+
+::: {.callout-note icon=false}
+
+## Which cell is considered a neighbour?
+
+The `findSpatialNeighbors` function, using the `poly2nb` method builds a neighbours list based on polygons with contiguous boundaries, that is sharing one or more boundary points. Boundary points less than `snap` distance apart are considered to indicate contiguity; used both to find candidate and actual neighbours. The default condition to be considered a 'neighbour cell' requires that at least one single shared boundary point meets the contiguity condition.
+
+:::
 
 ![Diagram of how the `findSpatialNeighbors` function works.](spatial-neighbours.jpg)
 

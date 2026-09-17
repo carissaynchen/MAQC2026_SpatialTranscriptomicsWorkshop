@@ -1019,7 +1019,20 @@ Gpr37l1 Gpr37l1 4915.348 11.34751      0   0</code></pre>
 </section>
 <section id="neighborhood-based-gene-expression-analyses" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="neighborhood-based-gene-expression-analyses">Neighborhood-based gene expression analyses</h2>
-<p>We start by creating a cell neighborhood graph, based on a distance threshold of 50 microns. To do so, we use the <em><a href="https://bioconductor.org/packages/3.23/SpatialFeatureExperiment">SpatialFeatureExperiment</a></em> package <span class="citation" data-cites="Moses2023-Voyager">(<a href="#ref-Moses2023-Voyager" role="doc-biblioref">Moses et al. 2023</a>)</span>. The <code>findSpatialNeighbors</code> function, using the <code>poly2nb</code> method builds a neighbours list based on polygons with contiguous boundaries, that is sharing one or more boundary point. Boundary points less than <code>snap</code> distance apart are considered to indicate contiguity; used both to find candidate and actual neighbours for planar geometries. The default condition to be considered a ‘neighbour cell’ requires that a single shared boundary point meets the contiguity condition.</p>
+<p>We start by creating a cell neighborhood graph, based on a distance threshold of 50 microns. To do so, we use the <em><a href="https://bioconductor.org/packages/3.23/SpatialFeatureExperiment">SpatialFeatureExperiment</a></em> package <span class="citation" data-cites="Moses2023-Voyager">(<a href="#ref-Moses2023-Voyager" role="doc-biblioref">Moses et al. 2023</a>)</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Which cell is considered a neighbour?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>findSpatialNeighbors</code> function, using the <code>poly2nb</code> method builds a neighbours list based on polygons with contiguous boundaries, that is sharing one or more boundary points. Boundary points less than <code>snap</code> distance apart are considered to indicate contiguity; used both to find candidate and actual neighbours. The default condition to be considered a ‘neighbour cell’ requires that at least one single shared boundary point meets the contiguity condition.</p>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="spatial-neighbours.jpg" class="img-fluid figure-img"></p>
