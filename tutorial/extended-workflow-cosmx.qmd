@@ -35,7 +35,7 @@ The theory behind generating spatial data and discussion of biases, artifacts an
 
 1. What does my data look like?
 2. What are the technical artifacts I need to be aware of?
-3. Which gene expression patterns are autocorrelated with space?
+3. Which genes are autocorrelated with space?
 4. Which cell types are likely to be interacting based on their proximity?
 
 :::
@@ -66,6 +66,14 @@ library(Voyager)
 set.seed(112358)
 ```
 
+Throughout this tutorial, we will store our data in a `SpatialExperiment` (SPE) object. The `SpatialExperiment` class is an R/Bioconductor S4 class that extends upon the `SingleCellExperiment` class for single-cell data to support storage and retrieval of additional information from spot-based and molecule-based platforms, including spatial coordinates, images, and image metadata. 
+
+The following schematic illustrates the SpatialExperiment class structure.
+
+![Overview of the SPE class structure.](spe-schematic.png)
+
+As shown, an object consists of: (i) assays containing expression counts, (ii) rowData containing information on features, i.e. genes, (iii) colData containing information on spots or cells, including nonspatial and spatial metadata, (iv) spatialCoords containing spatial coordinates, and (v) imgData containing image data.
+
 # Quality control
 
 ## Importing CosMx data
@@ -82,7 +90,7 @@ Commercially available panels can typically include three types of barcodes:
 - **Negative probes** serve to quantify non-specific binding.
 - **System controls** serve to quantify spot calling errors.
 
-::: 
+:::
 
 ```{r load-data-cos, message=FALSE, warning=FALSE}
 # retrieve CosMx dataset from OSF repo
@@ -123,7 +131,7 @@ Depending on the platform and the application, such gene panels may be pan-tissu
 Finally, imaging-based platforms include, in addition to transcript data, morphology information (such as area and eccentricity of segmented cells) 
 and information from antibody stains (such as those targeting cell nuclei or surface).
 
-### IF staining
+### Immunofluorescence staining
 
 CosMx outputs, for instance, typically include the min/max/mean intensities 
 of a set of immunofluorescence (IF) markers for, e.g., nuclei and cell surface 
@@ -338,6 +346,8 @@ Taken together, we cannot deem any FOVs as being obviously problematic here.
 Particularly in CosMx, lack of FOV stitching during cell segmentation can result 
 in fractured and possibly duplicated cells. To investigate potential artifacts
 related to this, we can use the distance to FOV borders calculated previously.
+
+[picture here]
 
 We can *roughly* estimate cell radii as $A=\pi r^2$ $\leftrightarrow r=\sqrt{A/\pi}$, 
 and use this as a threshold on FOV border distances; i.e., we flag a cell when 
@@ -740,6 +750,12 @@ wrap_plots(ps, guides="collect") &
 
 We start by creating a cell neighborhood graph, based on a distance threshold of 50 microns. To do so, we use the `r BiocStyle::Biocpkg("SpatialFeatureExperiment")` package [@Moses2023-Voyager].
 
+The function builds a neighbours list based on polygons with contiguous boundaries, that is sharing one or more boundary point.
+
+boundary points less than snap distance apart are considered to indicate contiguity; used both to find candidate and actual neighbours for planar geometries
+
+if TRUE, a single shared boundary point meets the contiguity condition
+
 ::: {.aside}
 Note that an alternative approach uses the $k$ nearest neighbors (kNN) method to define the neighborhood graph. Here, we prefer to use a distance-based approach, as it better captures the morphological structure of this tissue area.
 :::
@@ -769,6 +785,8 @@ plotColGraph(sfe,
 Given the neighborhood graph, we can calculate local measures of spatial autocorrelation for specific genes in the dataset.
 
 Here, we focus on Snap25 and Calm1, neuronal marker genes identified above that show interesting spatial expression distributions (see above). First, we compute the local Moran's I coefficient.
+
+[explain moran's I]
 
 ```{r cci-moran-snap25, fig.width=8, fig.height=3}
 gs <- c("Snap25", "Calm1")

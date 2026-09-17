@@ -144,7 +144,7 @@ window.Quarto = {
   <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
   <li><a href="#general-qc-metrics" id="toc-general-qc-metrics" class="nav-link" data-scroll-target="#general-qc-metrics">General QC metrics</a>
   <ul class="collapse">
-  <li><a href="#if-staining" id="toc-if-staining" class="nav-link" data-scroll-target="#if-staining">IF staining</a></li>
+  <li><a href="#immunofluorescence-staining" id="toc-immunofluorescence-staining" class="nav-link" data-scroll-target="#immunofluorescence-staining">Immunofluorescence staining</a></li>
   <li><a href="#morphology" id="toc-morphology" class="nav-link" data-scroll-target="#morphology">Morphology</a></li>
   <li><a href="#counts-area" id="toc-counts-area" class="nav-link" data-scroll-target="#counts-area">Counts &amp; area</a></li>
   </ul></li>
@@ -226,7 +226,7 @@ window.Quarto = {
 <ol type="1">
 <li>What does my data look like?</li>
 <li>What are the technical artifacts I need to be aware of?</li>
-<li>Which gene expression patterns are autocorrelated with space?</li>
+<li>Which genes are autocorrelated with space?</li>
 <li>Which cell types are likely to be interacting based on their proximity?</li>
 </ol>
 </div>
@@ -259,6 +259,15 @@ window.Quarto = {
 </section>
 <section id="quality-control" class="level1 page-columns page-full">
 <h1>Quality control</h1>
+<p>Throughout this tutorial, we will store our data in a <code>SpatialExperiment</code> (SPE) object. The <code>SpatialExperiment</code> class is an R/Bioconductor S4 class that extends upon the <code>SingleCellExperiment</code> class for single-cell data to support storage and retrieval of additional information from spot-based and molecule-based platforms, including spatial coordinates, images, and image metadata.</p>
+<p>The following schematic illustrates the SpatialExperiment class structure.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="spe-schematic.png" class="img-fluid figure-img"></p>
+<figcaption>Overview of the SPE class structure.</figcaption>
+</figure>
+</div>
+<p>As shown, an object consists of: (i) assays containing expression counts, (ii) rowData containing information on features, i.e.&nbsp;genes, (iii) colData containing information on spots or cells, including nonspatial and spatial metadata, (iv) spatialCoords containing spatial coordinates, and (v) imgData containing image data.</p>
 <section id="importing-cosmx-data" class="level2">
 <h2 class="anchored" data-anchor-id="importing-cosmx-data">Importing CosMx data</h2>
 <p><em><a href="https://bioconductor.org/packages/3.23/SpatialExperimentIO">SpatialExperimentIO</a></em> provides functions to import CosMx (Bruker), Xenium (10x Genomics), and MERSCOPE (Vizgen) datasets into <code>SingleCell/SpatialExperiment</code> objects, starting from the outputs provided by the three providers.</p>
@@ -341,8 +350,8 @@ imgData names(1): sample_id</code></pre>
 <p>Similarly to scRNA-seq, quality control (QC) is an important step to remove low-quality cells and highlights specific biases in the data at the sample, field of view (FOV), or slide area level. Unlike scRNA-seq and sequencing-based ST, however, most imaging-based ST platforms do not measure the transcriptome, nor an “unbiased” sample of it, but rely on the design of gene panels.</p>
 <p>Depending on the platform and the application, such gene panels may be pan-tissue or targeting specific tissues or cell types. Moreover, they vary from a few hundred (e.g., 313 in the first Xenium panel) to several thousands (e.g., the 5k Xenium panel or the 6k and 18k CosMx panels). Hence, unlike in sequencing-based platforms, we may not have enough ribosomal or mitochondrial transcripts to use for computing QC metrics. However, imaging-based platforms provide a set of negative probes that can be used to check for nonspecific RNA captures.</p>
 <p>Finally, imaging-based platforms include, in addition to transcript data, morphology information (such as area and eccentricity of segmented cells) and information from antibody stains (such as those targeting cell nuclei or surface).</p>
-<section id="if-staining" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="if-staining">IF staining</h3>
+<section id="immunofluorescence-staining" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="immunofluorescence-staining">Immunofluorescence staining</h3>
 <div class="page-columns page-full"><p>CosMx outputs, for instance, typically include the min/max/mean intensities of a set of immunofluorescence (IF) markers for, e.g., nuclei and cell surface (used for segmentation), as well as additional markers (experiment-dependent). Here, we show the distribution of mean IF intensities across the CosMx sample. </p><div class="no-row-height column-margin column-container"><span class="margin-aside">Values are arcsinh-transformed with a cofactor of 10 for visual purposes</span></div></div>
 <div class="cell">
 <details class="code-fold">
