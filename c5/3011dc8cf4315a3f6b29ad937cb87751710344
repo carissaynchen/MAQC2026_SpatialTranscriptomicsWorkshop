@@ -1,0 +1,14 @@
+README.md
+  h_c24d027b38481a 32-35,39-41,43,45,49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "c53011dc8cf4315a3f6b29ad937cb87751710344",
+  "prompts": {},
+  "humans": {
+    "h_c24d027b38481a": {
+      "author": "Riccardo Ceccaroni <riccardo.ceccaroni.95@gmail.com>"
+    }
+  }
+}
