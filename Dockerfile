@@ -11,6 +11,6 @@ WORKDIR /tutorial
 RUN mkdir -p /etc/rstudio && \
     echo 'session-default-working-dir=/tutorial' >> /etc/rstudio/rsession.conf
 
-#RUN quarto render extended-workflow-cosmx.qmd \
-#  --to html \
-#  -M embed-resources:true
+RUN quarto render extended-workflow-cosmx.qmd \
+  --to html \
+  -M embed-resources:true
