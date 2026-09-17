@@ -21,9 +21,6 @@ ENV R_USER_CACHE_DIR=/home/rstudio/.cache/R
 RUN mkdir -p "${R_USER_CACHE_DIR}/BiocFileCache" \
     && chown -R rstudio:rstudio /home/rstudio/.cache
 
-# Run subsequent commands as the same user who will use RStudio
-USER rstudio
-
 # Run quick tests without executing the full tutorial
 RUN Rscript tests/run-test-functions.R
 
