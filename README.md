@@ -29,19 +29,24 @@ In the commandline,
 
 1. Clone the GitHub repository.
    
-`git clone https://github.com/carissaynchen/MAQC2026_SpatialTranscriptomicsWorkshop.git`
+```bash
+git clone https://github.com/carissaynchen/MAQC2026_SpatialTranscriptomicsWorkshop.git
+cd MAQC2026_SpatialTranscriptomicsWorkshop
+```
 
 2. Pull the latest version of the docker image. (~9GB)
 
-`docker pull ghcr.io/carissaynchen/st-workshop:latest`
-
-3. Run the container, where `"$PWD"` is the folder path of the repository.
-
+```bash
+docker pull ghcr.io/carissaynchen/st-workshop:latest
 ```
+
+3. Run the container, where `$PWD` is the folder path of the repository.
+
+```bash
 docker run \
   -e PASSWORD=bioc \
   -p 8787:8787 \
-  -v "$PWD":/tutorial \
+  -v $PWD/tutorial:/tutorial \
   ghcr.io/carissaynchen/st-workshop:latest
 ```
 
@@ -57,4 +62,3 @@ docker run \
 
 The workshop borrows existing material and explanations from the
 [Orchestrating Spatial Transcriptomics with Bioconductor (OSTA)]([https://bioconductor.org/books/release/OSCA/)(https://bioconductor.org/books/release/OSTA/) book.
-
