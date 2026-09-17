@@ -5,7 +5,7 @@ on:
 
   push:
     paths:
-      - "tutorial/*.qmd"
+      - "tutorial/**"
       - "install_packages.R"
       - "tutorial/scripts/cache-data.R"
       - ".github/workflows/docker.yml"
