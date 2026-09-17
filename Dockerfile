@@ -25,10 +25,10 @@ RUN mkdir -p "${R_USER_CACHE_DIR}/BiocFileCache" \
 USER rstudio
 
 # Run quick tests without executing the full tutorial
-RUN Rscript tests/smoke-test.R
+RUN Rscript tests/run-test-functions.R
 
 # Download and cache only the datasets required by the workshop
-RUN Rscript scripts/prefetch-data.R
+RUN Rscript scripts/cache-data.R
 
 # Validate and render the tutorial without executing code
 RUN quarto render extended-workflow-cosmx.qmd \
