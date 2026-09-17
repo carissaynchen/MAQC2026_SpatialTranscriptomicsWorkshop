@@ -31,7 +31,7 @@ In the commandline,
    
 `git clone https://github.com/carissaynchen/MAQC2026_SpatialTranscriptomicsWorkshop.git`
 
-2. Pull the latest version of the docker image.
+2. Pull the latest version of the docker image. (~9GB)
 
 `docker pull ghcr.io/carissaynchen/st-workshop:latest`
 
@@ -42,7 +42,7 @@ docker run \
   -e PASSWORD=bioc \
   -p 8787:8787 \
   -v "$PWD":/workshop \
-  ghcr.io/carissaynchen/docker_img:latest
+  ghcr.io/carissaynchen/st-workshop:latest
 ```
 
 4. In the web browser, open <http://localhost:8787/> to start the Rstudio session.
