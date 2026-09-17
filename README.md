@@ -33,7 +33,7 @@ In the commandline,
 
 2. Pull the latest version of the docker image.
 
-`docker pull ghcr.io/carissaynchen/docker_img:latest`
+`docker pull ghcr.io/carissaynchen/st-workshop:latest`
 
 3. Run the container, where `"$PWD"` is the folder path of the repository.
 
