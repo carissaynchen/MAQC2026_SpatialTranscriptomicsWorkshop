@@ -41,7 +41,7 @@ In the commandline,
 docker run \
   -e PASSWORD=bioc \
   -p 8787:8787 \
-  -v "$PWD":/workshop \
+  -v "$PWD":/tutorial \
   ghcr.io/carissaynchen/st-workshop:latest
 ```
 
