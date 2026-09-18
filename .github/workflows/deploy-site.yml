@@ -31,6 +31,7 @@ jobs:
             ghcr.io/carissaynchen/st-workshop:latest \
             quarto render extended-workflow-cosmx.qmd \
               --to html \
+              --output index.html \
               --output-dir output
 
       - name: Deploy to gh-pages
