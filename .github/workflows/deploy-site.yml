@@ -1,0 +1,36 @@
+name: Build and deploy website
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Pull Docker image
+        run: |
+          docker pull ghcr.io/carissaynchen/st-workshop:latest
+
+      - name: Render Quarto website
+        run: |
+          docker run --rm \
+            -v "$PWD/tutorial:/tutorial" \
+            ghcr.io/carissaynchen/st-workshop:latest \
+            quarto render extended-workflow-cosmx.qmd \
+              --to html \
+              --output-dir output
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./tutorial/output
+          force_orphan: true
