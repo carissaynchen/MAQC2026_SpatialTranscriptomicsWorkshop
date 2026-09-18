@@ -1,0 +1,14 @@
+.github/workflows/deploy-site.yml
+  h_c24d027b38481a 1-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "df997465fcb92da6b94b2babc2cf0e7b636172d4",
+  "prompts": {},
+  "humans": {
+    "h_c24d027b38481a": {
+      "author": "Riccardo Ceccaroni <riccardo.ceccaroni.95@gmail.com>"
+    }
+  }
+}
