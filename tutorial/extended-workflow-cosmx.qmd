@@ -289,7 +289,7 @@ while visualizing the global structure of the tissue.
 plotZoomFovsMap(cos, 
     mapPointCol="green",
     colourBy="Mean.DAPI",
-    fovs=c(98:100, 113:115, 122:124))
+    fovs=c(98:100, 113:115, 122:124), scaleBarMap=FALSE)
 ```
 
 Assuming FOV placement aims to capture biologically interesting regions -- 
@@ -480,7 +480,7 @@ We can see how the QC score flags several cells close to the tissue border as we
 
 ## Filtering {#sec-img-quality-control-fil}
 
-Using `SpaceTrooper`s quality score, we will filter the CosMx dataset
+Using `r BiocStyle::Biocpkg("SpaceTrooper")`s quality score, we will filter the CosMx dataset
 which would exclude about `r round(100*mean(cos$low_qcscore))`\% of cells.
 
 ```{r cos-ex}
