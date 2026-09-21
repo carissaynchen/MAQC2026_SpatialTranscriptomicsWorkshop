@@ -18,6 +18,8 @@ By the end of the workshop, participants will be equipped to make **informed dec
 
 ## Workshop slides
 
+Presentation slides for the day are available [here](https://drive.google.com/file/d/1WS8PrgcoxO14dqpT1_SLyBCT4DHOCYtK/view?usp=sharing)
+
 ## Tutorial set-up
 
 The session will cover basic spatial transcriptomics analysis using the Bioconductor ecosystem. 
