@@ -15,17 +15,8 @@ WORKDIR /tutorial
 RUN mkdir -p /etc/rstudio && \
     echo 'session-default-working-dir=/tutorial' >> /etc/rstudio/rsession.conf
 
-# Prepare the BiocFileCache location used by the rstudio user
-ENV R_USER_CACHE_DIR=/home/rstudio/.cache/R
-
-RUN mkdir -p "${R_USER_CACHE_DIR}/BiocFileCache" \
-    && chown -R rstudio:rstudio /home/rstudio/.cache
-
 # Run quick tests without executing the full tutorial
 RUN Rscript tests/run-test-functions.R
-
-# Download and cache only the datasets required by the workshop
-RUN Rscript scripts/cache-data.R
 
 # Check .qmd config
 RUN mkdir -p _quarto-check \
