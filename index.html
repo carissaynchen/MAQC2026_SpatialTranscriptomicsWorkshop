@@ -1,0 +1,1878 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Carissa Chen">
+
+<title>MAQC 2026 Spatial Transcriptomics Workshop</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="extended-workflow-cosmx_files/libs/clipboard/clipboard.min.js"></script>
+<script src="extended-workflow-cosmx_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="extended-workflow-cosmx_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="extended-workflow-cosmx_files/libs/quarto-html/popper.min.js"></script>
+<script src="extended-workflow-cosmx_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="extended-workflow-cosmx_files/libs/quarto-html/anchor.min.js"></script>
+<link href="extended-workflow-cosmx_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="extended-workflow-cosmx_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="extended-workflow-cosmx_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="extended-workflow-cosmx_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="extended-workflow-cosmx_files/libs/bootstrap/bootstrap-8912dcf94f14489aa4306d6a204a7edb.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="quarto-light">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article toc-left">
+<div id="quarto-sidebar-toc-left" class="sidebar toc-left">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#quality-control" id="toc-quality-control" class="nav-link" data-scroll-target="#quality-control">Quality control</a>
+  <ul>
+  <li><a href="#importing-cosmx-data" id="toc-importing-cosmx-data" class="nav-link" data-scroll-target="#importing-cosmx-data">Importing CosMx data</a></li>
+  <li><a href="#visualization" id="toc-visualization" class="nav-link" data-scroll-target="#visualization">Visualization</a></li>
+  <li><a href="#general-qc-metrics" id="toc-general-qc-metrics" class="nav-link" data-scroll-target="#general-qc-metrics">General QC metrics</a>
+  <ul class="collapse">
+  <li><a href="#immunofluorescence-staining" id="toc-immunofluorescence-staining" class="nav-link" data-scroll-target="#immunofluorescence-staining">Immunofluorescence staining</a></li>
+  <li><a href="#morphology" id="toc-morphology" class="nav-link" data-scroll-target="#morphology">Morphology</a></li>
+  <li><a href="#counts-area" id="toc-counts-area" class="nav-link" data-scroll-target="#counts-area">Counts &amp; area</a></li>
+  </ul></li>
+  <li><a href="#sec-img-quality-control-cos" id="toc-sec-img-quality-control-cos" class="nav-link" data-scroll-target="#sec-img-quality-control-cos">CosMx-specific QC</a>
+  <ul class="collapse">
+  <li><a href="#fields-of-view-fovs" id="toc-fields-of-view-fovs" class="nav-link" data-scroll-target="#fields-of-view-fovs">Fields of view (FOVs)</a></li>
+  <li><a href="#border-effects" id="toc-border-effects" class="nav-link" data-scroll-target="#border-effects">Border effects</a></li>
+  </ul></li>
+  <li><a href="#identifying-low-quality-cells" id="toc-identifying-low-quality-cells" class="nav-link" data-scroll-target="#identifying-low-quality-cells">Identifying low-quality cells</a>
+  <ul class="collapse">
+  <li><a href="#individual-metrics" id="toc-individual-metrics" class="nav-link" data-scroll-target="#individual-metrics">Individual metrics</a></li>
+  <li><a href="#combined-score" id="toc-combined-score" class="nav-link" data-scroll-target="#combined-score">Combined score</a></li>
+  </ul></li>
+  <li><a href="#sec-img-quality-control-fil" id="toc-sec-img-quality-control-fil" class="nav-link" data-scroll-target="#sec-img-quality-control-fil">Filtering</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
+  <li><a href="#intermediate-processing" id="toc-intermediate-processing" class="nav-link" data-scroll-target="#intermediate-processing">Intermediate processing</a>
+  <ul>
+  <li><a href="#normalization" id="toc-normalization" class="nav-link" data-scroll-target="#normalization">Normalization</a>
+  <ul class="collapse">
+  <li><a href="#cell-area-based-normalization" id="toc-cell-area-based-normalization" class="nav-link" data-scroll-target="#cell-area-based-normalization">Cell area-based normalization</a></li>
+  <li><a href="#extension-comparing-normalization-methods" id="toc-extension-comparing-normalization-methods" class="nav-link" data-scroll-target="#extension-comparing-normalization-methods">Extension: Comparing normalization methods</a></li>
+  </ul></li>
+  <li><a href="#cell-type-annotation" id="toc-cell-type-annotation" class="nav-link" data-scroll-target="#cell-type-annotation">Cell Type Annotation</a></li>
+  <li><a href="#marker-genes" id="toc-marker-genes" class="nav-link" data-scroll-target="#marker-genes">Marker genes</a></li>
+  <li><a href="#neighborhood-based-gene-expression-analyses" id="toc-neighborhood-based-gene-expression-analyses" class="nav-link" data-scroll-target="#neighborhood-based-gene-expression-analyses">Neighborhood-based gene expression analyses</a></li>
+  <li><a href="#cell-cell-interactions" id="toc-cell-cell-interactions" class="nav-link" data-scroll-target="#cell-cell-interactions">Cell-cell interactions</a></li>
+  </ul></li>
+  <li><a href="#appendix" id="toc-appendix" class="nav-link" data-scroll-target="#appendix">Appendix</a></li>
+  <li><a href="#session-information" id="toc-session-information" class="nav-link" data-scroll-target="#session-information">Session information</a></li>
+  </ul>
+</nav>
+</div>
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+</div>
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MAQC 2026 Spatial Transcriptomics Workshop</h1>
+<p class="subtitle lead">From raw spatial data to generating biological insights</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Carissa Chen </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Spatial transcriptomics introduces exciting opportunities and analytical challenges to investigate how tissue architecture and extracellular signalling within the microenvironment shape cellular identity and function across development, health, and disease. The multiple modalities of data - spatial coordinates, images and gene expression introduces greater potential to <strong>interrogate advanced biological hypotheses</strong>. However, the added complexity also introduces <strong>technology-specific biases and artifacts</strong>, together with important considerations during experimental design.</p>
+<p>The theory behind generating spatial data and discussion of biases, artifacts and experimental design are covered in the accompanying slides. Here, we will walk through a basic spatial transcriptomics analysis workflow using the Bioconductor ecosystem. Specifically, we will analyse 1k-plex CosMx data (Bruker) on mouse brain tissue in this demo. Most of the content has been taken from <a href="https://bioconductor.org/books/release/OSTA/">OSTA</a>. For a more comprehensive discussion and in-depth analysis pipelines, please refer to the OSTA book.</p>
+<p><em>First</em>, we will perform quality control and pre-processing where we explore how to meaningfully visualise spatial data and see how technical artifacts could manifest in the data. <em>Then</em>, we will characterise the data, including cell type annotatio and identification of marker genes. <em>Finally</em>, this demo will demonstrate the additional biological insights we can gain from leveraging spatial information such as neighbourhood analysis and cell-cell interaction analysis.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Through this workshop, we will employ basic strategies to answer these critical questions:
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>What does my data look like?</li>
+<li>What are the technical artifacts I need to be aware of?</li>
+<li>Which genes are autocorrelated with space?</li>
+<li>Which cell types are likely to be interacting based on their proximity?</li>
+</ol>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESpace)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(OSTA.data)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggspavis)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scuttle)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scRNAseq)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scrapper)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SingleR)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SpaceTrooper)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spatialFDA)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SpatialExperiment)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SpatialExperimentIO)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SpatialFeatureExperiment)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(grid)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spdep)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Voyager)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># set seed for random number generation in order to make results reproducible</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">112358</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Throughout this tutorial, we will store our data in a <code>SpatialExperiment</code> (SPE) object. The <code>SpatialExperiment</code> class is an R/Bioconductor S4 class that extends upon the <code>SingleCellExperiment</code> class for single-cell data to support storage and retrieval of additional information from spot-based and molecule-based platforms, including spatial coordinates, images, and image metadata.</p>
+<p>The following schematic illustrates the SpatialExperiment class structure.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="spe-schematic.png" class="img-fluid figure-img"></p>
+<figcaption>Overview of the SPE class structure.</figcaption>
+</figure>
+</div>
+<p>As shown, an object consists of: (i) assays containing expression counts, (ii) rowData containing information on features, i.e.&nbsp;genes, (iii) colData containing information on spots or cells, including nonspatial and spatial metadata, (iv) spatialCoords containing spatial coordinates, and (v) imgData containing image data.</p>
+</section>
+<section id="quality-control" class="level1 page-columns page-full">
+<h1>Quality control</h1>
+<section id="importing-cosmx-data" class="level2">
+<h2 class="anchored" data-anchor-id="importing-cosmx-data">Importing CosMx data</h2>
+<p><em><a href="https://bioconductor.org/packages/3.23/SpatialExperimentIO">SpatialExperimentIO</a></em> provides functions to import CosMx (Bruker), Xenium (10x Genomics), and MERSCOPE (Vizgen) datasets into <code>SingleCell/SpatialExperiment</code> objects, starting from the outputs provided by the three providers.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Types of probes
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Commercially available panels can typically include three types of barcodes:</p>
+<ul>
+<li><strong>RNA targets</strong> determine the ‘plexity’ of the panel.</li>
+<li><strong>Negative probes</strong> serve to quantify non-specific binding.</li>
+<li><strong>System controls</strong> serve to quantify spot calling errors.</li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve CosMx dataset from OSF repo</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="st">"CosMx1k_MouseBrain2"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>pa <span class="ot">&lt;-</span> <span class="fu">OSTA.data_load</span>(id, <span class="at">mol=</span><span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(td <span class="ot">&lt;-</span> <span class="fu">tempfile</span>())</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(pa, <span class="at">exdir=</span>td)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>cos <span class="ot">&lt;-</span> <span class="fu">readCosmxSXE</span>(td, <span class="at">addTx=</span><span class="cn">FALSE</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># prepare data for 'SpaceTrooper' </span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>cos <span class="ot">&lt;-</span> <span class="fu">updateCosmxSPE</span>(cos, td, <span class="at">sampleName=</span><span class="st">"CosMx"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>cos <span class="ot">&lt;-</span> <span class="fu">readAndAddPolygonsToSPE</span>(cos)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>cos<span class="sc">$</span>in_tissue <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>cos</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>class: SpatialExperiment 
+dim: 950 48556 
+metadata(4): fov_positions fov_dim polygons technology
+assays(1): counts
+rownames(950): Chrna4 Slc6a1 ... Cck Aqp4
+rowData names(0):
+colnames(48556): f1_c1 f1_c10 ... f99_c98 f99_c99
+colData names(22): fov cellID ... polygons in_tissue
+reducedDimNames(0):
+mainExpName: NULL
+altExpNames(1): NegPrb
+spatialCoords names(2) : CenterX_global_px CenterY_global_px
+imgData names(1): sample_id</code></pre>
+</div>
+</div>
+</section>
+<section id="visualization" class="level2">
+<h2 class="anchored" data-anchor-id="visualization">Visualization</h2>
+<p>Imaging-based ST data relies on imaging a 2D tissue section. Hence, an advantage compared to scRNA-seq is that we can readily visualize a 2D map of the cells and directly plot cell features onto the map. The easiest way to visualize the data is by representing the cells as centroids. This is useful to have a global bird’s-eye-view of the tissue.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># points = cell centroids</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCoords</span>(cos, <span class="at">point_size=</span><span class="dv">0</span>, <span class="at">y_reverse =</span> <span class="cn">FALSE</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(cos<span class="sc">$</span>sample_id)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/plot-xy-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Unlike, Xenium and MERSCOPE, CosMx does not stitch fields of view (FOVs) in a single image, but rather treats each FOV independently. It is therefore useful to visualize a map of the FOVs to understand their spatial arrangement.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCellsFovs</span>(cos)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/plot-fov-map-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:66.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="general-qc-metrics" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="general-qc-metrics">General QC metrics</h2>
+<p>Similarly to scRNA-seq, quality control (QC) is an important step to remove low-quality cells and highlights specific biases in the data at the sample, field of view (FOV), or slide area level. Unlike scRNA-seq and sequencing-based ST, however, most imaging-based ST platforms do not measure the transcriptome, nor an “unbiased” sample of it, but rely on the design of gene panels.</p>
+<p>Depending on the platform and the application, such gene panels may be pan-tissue or targeting specific tissues or cell types. Moreover, they vary from a few hundred (e.g., 313 in the first Xenium panel) to several thousands (e.g., the 5k Xenium panel or the 6k and 18k CosMx panels). Hence, unlike in sequencing-based platforms, we may not have enough ribosomal or mitochondrial transcripts to use for computing QC metrics. However, imaging-based platforms provide a set of negative probes that can be used to check for nonspecific RNA captures.</p>
+<p>Finally, imaging-based platforms include, in addition to transcript data, morphology information (such as area and eccentricity of segmented cells) and information from antibody stains (such as those targeting cell nuclei or surface).</p>
+<section id="immunofluorescence-staining" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="immunofluorescence-staining">Immunofluorescence staining</h3>
+<div class="page-columns page-full"><p>CosMx outputs, for instance, typically include the min/max/mean intensities of a set of immunofluorescence (IF) markers for, e.g., nuclei and cell surface (used for segmentation), as well as additional markers (experiment-dependent). Here, we show the distribution of mean IF intensities across the CosMx sample. </p><div class="no-row-height column-margin column-container"><span class="margin-aside">Values are arcsinh-transformed with a cofactor of 10 for visual purposes</span></div></div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>flu <span class="ot">&lt;-</span> <span class="fu">grepv</span>(<span class="st">"^Mean"</span>, <span class="fu">names</span>(<span class="fu">colData</span>(cos)))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(flu, \(.) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    cos[[.]] <span class="ot">&lt;-</span> <span class="fu">asinh</span>(cos[[.]]<span class="sc">/</span><span class="dv">10</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plotCoords</span>(cos, <span class="at">annotate=</span>., <span class="at">point_size=</span><span class="dv">0</span>, <span class="at">y_reverse =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}) <span class="sc">|&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">wrap_plots</span>(<span class="at">nrow=</span><span class="dv">1</span>) <span class="sc">&amp;</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position=</span><span class="st">"bottom"</span>, </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.key.height=</span>grid<span class="sc">::</span><span class="fu">unit</span>(<span class="fl">0.4</span>, <span class="st">"lines"</span>)) <span class="sc">&amp;</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_gradientn</span>(<span class="at">colors=</span>pals<span class="sc">::</span><span class="fu">jet</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/plot-cos-xy-dapi-1.png" class="img-fluid figure-img" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="morphology" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="morphology">Morphology</h3>
+<p><em><a href="https://bioconductor.org/packages/3.23/SpaceTrooper">SpaceTrooper</a></em>’s <code>spatialPerCellQC</code> function can be used to compute a set of metrics that are particular to imaging-based ST data; examples listed below. In addition, the function incorporates an internal call to <code>quickRnaQc.se</code> from the <em><a href="https://bioconductor.org/packages/3.23/scrapper">scrapper</a></em> package to compute some standard scRNA-seq QC metrics on an <code>altExp</code>; here, we specify using negative probes.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Note that metrics also include each cell’s distance from horizontal/vertical and nearest FOV borders: <code>dist_border_x/y</code> and <code>dist_border</code>, respectively; we will get back to this in <a href="#sec-img-quality-control-cos" class="quarto-xref">Section&nbsp;2.4</a>.</p>
+</div></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute 'SpaceTrooper' QC metrics</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>cos <span class="ot">&lt;-</span> <span class="fu">spatialPerCellQC</span>(cos, <span class="at">use_altexps=</span><span class="st">"NegPrb"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the following cell metadata are newly available:</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "sum"                     "detected"               
+ [3] "altexps_NegPrb_sum"      "altexps_NegPrb_detected"
+ [5] "altexps_NegPrb_percent"  "total"                  
+ [7] "control_sum"             "control_detected"       
+ [9] "target_sum"              "target_detected"        
+[11] "CenterX_global_px"       "CenterY_global_px"      
+[13] "ctrl_total_ratio"        "log2Ctrl_total_ratio"   
+[15] "CenterX_global_um"       "CenterY_global_um"      
+[17] "Area_um"                 "dist_border_x"          
+[19] "dist_border_y"           "dist_border"            
+[21] "log2AspectRatio"         "SignalDensity"          
+[23] "log2SignalDensity"      </code></pre>
+</div>
+</div>
+<p>In particular, the following metrics have been added to the <code>colData</code>:</p>
+<ul>
+<li><code>Area_um</code>: area in microns</li>
+<li><code>SignalDensity</code>: count density = number of transcripts per area</li>
+<li><code>log2AspectRatio</code>: log2 of the aspect ratio (x-/y-axis) of each cell</li>
+<li><code>ctrl_total_ratio</code>: proportion of negative probe counts over total counts</li>
+</ul>
+</section>
+<section id="counts-area" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="counts-area">Counts &amp; area</h3>
+<p>Imaging-based ST data relies on imaging a 2D tissue section. Cells thus represent a slice through a 3D system, and we expect a tight relationship between a cell’s counts and its area. When we inspect total counts and cell areas as separate (univariate) distributions, both appear approximately log-normal distributed.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>.p <span class="ot">&lt;-</span> \(df, xs) {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    fd <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(df, <span class="fu">all_of</span>(xs))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    mu <span class="ot">&lt;-</span> <span class="fu">summarise_at</span>(<span class="fu">group_by</span>(fd, name), <span class="st">"value"</span>, median)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(fd, <span class="fu">aes</span>(value)) <span class="sc">+</span> <span class="fu">facet_grid</span>(<span class="sc">~</span> name) <span class="sc">+</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_histogram</span>(<span class="at">bins=</span><span class="dv">50</span>, <span class="at">linewidth=</span><span class="fl">0.1</span>, <span class="at">fill=</span><span class="st">"gray"</span>) <span class="sc">+</span> </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_vline</span>(<span class="at">data=</span>mu, <span class="fu">aes</span>(<span class="at">xintercept=</span>value), <span class="at">col=</span><span class="st">"blue"</span>) <span class="sc">+</span> </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_text</span>(</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">hjust=</span><span class="sc">-</span><span class="fl">0.1</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">col=</span><span class="st">"blue"</span>, </span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">data=</span>mu, <span class="fu">aes</span>(value, <span class="dv">0</span>, <span class="at">label=</span><span class="fu">round</span>(value))) <span class="sc">+</span> </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_x_continuous</span>(<span class="cn">NULL</span>, <span class="at">trans=</span><span class="st">"log10"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"# cells"</span>) <span class="sc">+</span> </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">panel.grid.minor=</span><span class="fu">element_blank</span>())</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>df_cos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">colData</span>(cos), <span class="fu">spatialCoords</span>(cos))</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="fu">.p</span>(df_cos, <span class="fu">c</span>(<span class="st">"Area_um"</span>, <span class="st">"total"</span>)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"CosMx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/plot-qc-1d-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Similarly, we can visualize the distribution of these metrics in the tissue by plotting cell centroids colored by total counts and cell area, respectively.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lapply</span>(<span class="fu">c</span>(<span class="st">"Area_um"</span>, <span class="st">"total"</span>), \(.) {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co"># crop very low/high values for clearer visualization</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    val <span class="ot">&lt;-</span> cos[[.]]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    qs <span class="ot">&lt;-</span> <span class="fu">quantile</span>(val, <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">0.99</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    val <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(val <span class="sc">&lt;</span> qs[<span class="dv">1</span>], qs[<span class="dv">1</span>], <span class="fu">ifelse</span>(val <span class="sc">&gt;</span> qs[<span class="dv">2</span>], qs[<span class="dv">2</span>], val))</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    cos[[.]] <span class="ot">&lt;-</span> val</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plotCoords</span>(cos, <span class="at">annotate=</span>., <span class="at">point_size=</span><span class="dv">0</span>, <span class="at">y_reverse =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>         <span class="fu">theme</span>(<span class="at">legend.key.width=</span>grid<span class="sc">::</span><span class="fu">unit</span>(<span class="fl">0.5</span>, <span class="st">"lines"</span>)) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_color_gradientn</span>(<span class="at">colors=</span><span class="fu">unname</span>(pals<span class="sc">::</span><span class="fu">jet</span>()), <span class="at">trans=</span><span class="st">"log10"</span>)</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>}) <span class="sc">|&gt;</span> <span class="fu">wrap_plots</span>(<span class="at">nrow=</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/plot-qc-xy-1.png" class="img-fluid figure-img" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In a bivariate setting, we observe a positive relationship between counts and area (as expected).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>.p <span class="ot">&lt;-</span> \(df, x, y) {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(.data[[x]], .data[[y]])) <span class="sc">+</span> </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>(<span class="at">shape=</span><span class="dv">16</span>, <span class="at">size=</span><span class="dv">0</span>, <span class="at">alpha=</span><span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>, <span class="at">col=</span><span class="st">"blue"</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">scale_x_log10</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>() <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">aspect.ratio=</span><span class="dv">1</span>, </span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">panel.grid.minor=</span><span class="fu">element_blank</span>())</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">.p</span>(df_cos, <span class="st">"Area_um"</span>, <span class="st">"total"</span>) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"CosMx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/plot-qc-2d-one-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="page-columns page-full"><p>In some cases, a peculiar count-area distribution might be indicative of segmentation problems. Undersegmentation (i.e., when groups of cells are merged together) might lead to fewer counts than expected for a given area (e.g., when they are far apart and empty space is being segmented). </p><div class="no-row-height column-margin column-container"><span class="margin-aside">A useful metric to explore this issue is the <code>log2SignalDensity</code>, which estimates the transcript density for each cell.</span></div></div>
+</section>
+</section>
+<section id="sec-img-quality-control-cos" class="level2">
+<h2 class="anchored" data-anchor-id="sec-img-quality-control-cos">CosMx-specific QC</h2>
+<section id="fields-of-view-fovs" class="level3">
+<h3 class="anchored" data-anchor-id="fields-of-view-fovs">Fields of view (FOVs)</h3>
+<p>Imaging-based ST data from CosMx are acquired through iterative imaging of predefined rectangular regions, so-called fields of view (FOV).</p>
+<p>Unlike Xenium and MERSCOPE, standard CosMx pipelines do not stitch FOVs, but rather treat each FOV independently. The <code>colData</code> of the <code>SpatialExperiment</code> object resulting from a CosMx data import will include the FOV of each cell, but it is sometimes tricky to understand (or remember) the relative position of each FOV within the slide.</p>
+<p><em><a href="https://bioconductor.org/packages/3.23/SpaceTrooper">SpaceTrooper</a></em>’s <code>plotZoomFovsMap</code> function provides an easy way to map FOVs within the slide, allowing to zoom in on a subset of FOVs, while visualizing the global structure of the tissue.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotZoomFovsMap</span>(cos, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">mapPointCol=</span><span class="st">"green"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">colourBy=</span><span class="st">"Mean.DAPI"</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">fovs=</span><span class="fu">c</span>(<span class="dv">98</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">113</span><span class="sc">:</span><span class="dv">115</span>, <span class="dv">122</span><span class="sc">:</span><span class="dv">124</span>), <span class="at">scaleBarMap=</span><span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/plot-cos-fov-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Assuming FOV placement aims to capture biologically interesting regions – regions of interest (ROIs) – we would expect every FOV to capture a decent number of cells. Issues in image registration or IF staining, however, may affect spot calling and cell segmentation, and can yield FOVs with virtually no cells. We thus advice inspecting the number of cells across FOVs:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ns <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">table</span>(<span class="at">fov=</span>cos<span class="sc">$</span>fov), </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">responseName=</span><span class="st">"n_cells"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ns, <span class="fu">aes</span>(fov, n_cells)) <span class="sc">+</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="fu">seq</span>(<span class="dv">5</span>, <span class="fu">max</span>(cos<span class="sc">$</span>fov), <span class="dv">5</span>))) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">limits=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">1e3</span>), <span class="at">n.breaks=</span><span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"field of view (FOV)"</span>, <span class="at">y=</span><span class="st">"# cells"</span>) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_col</span>(<span class="at">fill=</span><span class="st">"grey"</span>, <span class="at">alpha=</span><span class="dv">2</span><span class="sc">/</span><span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">expand=</span><span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/cos-plot-ns-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>It is generally also worth checking that basic QC metrics do not vary across FOVs. Of course, such effects will also be driven by differences in subpopulation composition across FOVs. However, gross differences in detection efficacy, IF staining, spot calling, segmentation, etc. often still manifest in FOV-level shifts in IF stains and/or RNA target, negative probe, system control counts. A simple spot-check is the following type of visualization, but more thorough investigation is advisable ‘in the wild’, especially so in challenging types of tissue:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">colData</span>(cos))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>ys <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"detected"</span>, <span class="st">"total"</span>, <span class="st">"Area_um"</span>, <span class="st">"log2SignalDensity"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ys <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">grepv</span>(<span class="st">"Mean"</span>, <span class="fu">names</span>(df)), ys)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>fd <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(df, ys) <span class="sc">|&gt;</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">value=</span><span class="fu">case_when</span>(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">grepl</span>(<span class="st">"Mean"</span>, name) <span class="sc">~</span> <span class="fu">asinh</span>(value),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">grepl</span>(<span class="st">"total"</span>, name) <span class="sc">~</span> <span class="fu">log10</span>(value),</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        <span class="fu">grepl</span>(<span class="st">"^Area"</span>, name) <span class="sc">~</span> <span class="fu">log10</span>(value),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>        <span class="cn">TRUE</span> <span class="sc">~</span> value), <span class="at">fov=</span><span class="fu">factor</span>(fov))</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(fd, <span class="fu">aes</span>(fov, value, <span class="at">fill=</span>fov)) <span class="sc">+</span> </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>name, <span class="at">nrow=</span><span class="dv">3</span>, <span class="at">scales=</span><span class="st">"free_y"</span>) <span class="sc">+</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="at">linewidth=</span><span class="fl">0.2</span>, <span class="at">outlier.size=</span><span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_x_discrete</span>(<span class="at">breaks=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="fu">seq</span>(<span class="dv">10</span>, <span class="fu">max</span>(cos<span class="sc">$</span>fov), <span class="dv">10</span>))) <span class="sc">+</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_minimal</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"field of view (FOV)"</span>, <span class="at">y=</span><span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/cos-plot-qc-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In our example, DAPI stains, RNA target counts (<code>total</code>), and the number of uniquely detected RNA targets (<code>detected</code>) are fairly constant across FOVs; systematic differences seem to reflect morphological differences across FOVs. Taken together, we cannot deem any FOVs as being obviously problematic here.</p>
+</section>
+<section id="border-effects" class="level3">
+<h3 class="anchored" data-anchor-id="border-effects">Border effects</h3>
+<p>Particularly in CosMx, lack of FOV stitching during cell segmentation can result in fractured and possibly duplicated cells. To investigate potential artifacts related to this, we can use the distance to FOV borders calculated previously.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="border-effects.jpg" class="img-fluid figure-img"></p>
+<figcaption>Illustration of border effects between two FOVs.</figcaption>
+</figure>
+</div>
+<p>We can <em>roughly</em> estimate cell radii as <span class="math inline">\(A=\pi r^2\)</span> <span class="math inline">\(\leftrightarrow r=\sqrt{A/\pi}\)</span>, and use this as a threshold on FOV border distances; i.e., we flag a cell when its centroid is closer to any border than the radius of an average circular cell.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>(r <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">mean</span>(cos<span class="sc">$</span>Area)<span class="sc">/</span>pi))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 60.55499</code></pre>
+</div>
+</div>
+<p>Now, let us visualize total RNA counts against distance to FOV borders, setting the above estimate for radius <code>r</code> as a threshold on the latter; we also include rolling means to better highlight global trends:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">colData</span>(cos))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>.p <span class="ot">&lt;-</span> \(df, x, y) {</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(.data[[x]], .data[[y]])) <span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">"grey"</span>, <span class="at">size=</span><span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_smooth</span>() <span class="sc">+</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_vline</span>(<span class="at">xintercept=</span>r, <span class="at">col=</span><span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_vline</span>(<span class="at">xintercept=</span><span class="dv">50</span>, <span class="at">linetype=</span><span class="dv">2</span>)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">.p</span>(df, <span class="st">"dist_border"</span>, <span class="st">"total"</span>) <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">500</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">2000</span>)</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">.p</span>(df, <span class="st">"dist_border"</span>, <span class="st">"Area_um"</span>) <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">500</span>) <span class="sc">+</span> <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">200</span>)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">.p</span>(df, <span class="st">"dist_border_x"</span>, <span class="st">"log2AspectRatio"</span>) <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">500</span>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> <span class="fu">.p</span>(df, <span class="st">"dist_border_y"</span>, <span class="st">"log2AspectRatio"</span>) <span class="sc">+</span> <span class="fu">xlim</span>(<span class="dv">0</span>, <span class="dv">500</span>)</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">/</span> (p3 <span class="sc">+</span> p4) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/cos-plot-ds-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As expected, we observe a decline in counts near FOV borders, with about 6.6% of cells falling below <span class="math inline">\(r\)</span> (red line) and 5.1% of cells falling below 50 pixels (dashed line).</p>
+<p>These cells exhibit lower total counts and smaller segmented areas, as well as a distortion in their aspect ratio (thin cells close to the y border and broad cells close to the x border).</p>
+<p>To mitigate potential artifacts in downstream analyses, we may choose to filter out these cells, or otherwise flag them as potentially problematic events to be kept a cautionary eye on.</p>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># highlight border cells across </span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the tissue (using cell centroids)</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>cos<span class="sc">$</span>ex <span class="ot">&lt;-</span> df<span class="sc">$</span>dist_border <span class="sc">&lt;</span> r</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCentroids</span>(cos, <span class="at">colourBy=</span><span class="st">"ex"</span>, <span class="at">sampleId=</span><span class="cn">NULL</span>) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"lavender"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">col=</span><span class="fu">guide_legend</span>(<span class="at">override.aes=</span><span class="fu">list</span>(<span class="at">size=</span><span class="dv">2</span>))) <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>() <span class="sc">+</span> <span class="fu">theme</span>(<span class="at">legend.key.size=</span>grid<span class="sc">::</span><span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">"pt"</span>))</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># zoom in on subset of FOVs</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a><span class="co"># visualizing cell boundaries</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>fs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">98</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">113</span><span class="sc">:</span><span class="dv">115</span>, <span class="dv">122</span><span class="sc">:</span><span class="dv">124</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plotPolygons</span>(</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    cos[, cos<span class="sc">$</span>fov <span class="sc">%in%</span> fs], </span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">colourBy=</span><span class="st">"ex"</span>, <span class="at">sampleId=</span><span class="cn">NULL</span>,</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">borderCol=</span><span class="st">"black"</span>, <span class="at">palette=</span><span class="fu">c</span>(<span class="st">"lavender"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="extended-workflow-cosmx_files/figure-html/cos-plot-ex-1.png" class="img-fluid" width="480"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="extended-workflow-cosmx_files/figure-html/cos-plot-ex-2.png" class="img-fluid" width="480"></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="identifying-low-quality-cells" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="identifying-low-quality-cells">Identifying low-quality cells</h2>
+<p>We can now use the QC metrics calculated above to flag (and potentially remove) low-quality cells.</p>
+<section id="individual-metrics" class="level3">
+<h3 class="anchored" data-anchor-id="individual-metrics">Individual metrics</h3>
+<p>First, we can consider metrics separately looking for outliers in their distribution. Depending on the metric, we are interested in low-end or high-end outliers (or both). For instance, we may want to exclude too small/large cells as potential artifacts.</p>
+<p><em><a href="https://bioconductor.org/packages/3.23/SpaceTrooper">SpaceTrooper</a></em> provides a function to compute outliers of the distribution of any QC metric present in the <code>colData</code> of the object. We can then visualize the distribution and outlier threshold with a histogram.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>cos <span class="ot">&lt;-</span> <span class="fu">computeSpatialOutlier</span>(cos, <span class="at">computeBy=</span><span class="st">"total"</span>, <span class="at">method=</span><span class="st">"mc"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>cos <span class="ot">&lt;-</span> <span class="fu">computeSpatialOutlier</span>(cos, <span class="at">computeBy=</span><span class="st">"Area_um"</span>, <span class="at">method=</span><span class="st">"mc"</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plotMetricHist</span>(cos, <span class="at">metric=</span><span class="st">"total"</span>, <span class="at">useFences=</span><span class="st">"total_outlier_mc"</span>) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plotMetricHist</span>(cos, <span class="at">metric=</span><span class="st">"Area_um"</span>, <span class="at">useFences=</span><span class="st">"Area_um_outlier_mc"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/SpaceTrooper-ol-cos-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In the CosMx data, we identify 332 outliers for total counts and 339 outliers for area.</p>
+</section>
+<section id="combined-score" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="combined-score">Combined score</h3>
+<p>Finally, we can compute an aggregated quality score, which combines a cell’s transcript density, aspect ratio and (for CosMx) distance from FOV borders.</p>
+<p>Specifically, <em><a href="https://bioconductor.org/packages/3.23/SpaceTrooper">SpaceTrooper</a></em>’s <code>computeQCScore</code> function will compute a combined quality score based on count density (<code>log2SignalDensity</code>), cell aspect ratio (<code>log2AspectRatio</code>), only for cells closer than a specified distance from FOV borders, and control-to-total count ratio (<code>log2Ctrl_total_ratio</code>). The count density is computed as the ratio between the per cell total gene counts divided by the cell area; the aspect ratio represents FOV border effect typical of CosMx datasets; the control-to-total ratio is the ratio between counts for control probes and total counts per cell and represents nonspecific signal.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>The quality score is computed using a ridge logistic regression model, which predicts a score between 0 and 1, where higher scores indicate better quality cells, using the following model formula: <code>~(log2SignalDensity + Area_um + log2Ctrl_total_ratio + I(abs(log2AspectRatio) * as.numeric(dist_border&lt;50)))^2</code>, where the <code>^2</code> notation indicates all pairwise interactions among the included variables. See <code>?computeQCScore</code> for details.</p>
+</div></div><p>Here, <code>computeQCScore()</code> will add a (numeric) <code>QC_score</code>, and <code>computeQCScoreFlags</code> will add a (logical) <code>low_qcscore</code> slot to the input SPE’s <code>colData</code>; the latter flags low-quality cells.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute quality scores &amp; flag cells that</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># fall below specified percentile threshold</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>cos <span class="ot">&lt;-</span> <span class="fu">computeQCScore</span>(cos)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>cos <span class="ot">&lt;-</span> <span class="fu">computeQCScoreFlags</span>(cos, </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">qsThreshold=</span><span class="fl">0.5</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="co"># the following slots have now been </span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="co"># added to the object's cell metadata</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>nms <span class="ot">&lt;-</span> <span class="fu">names</span>(<span class="fu">colData</span>(cos))</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>sco <span class="ot">&lt;-</span> <span class="fu">grepv</span>(<span class="st">"score$"</span>, nms)</span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">colData</span>(cos)[sco])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>DataFrame with 6 rows and 2 columns
+        QC_score low_qcscore
+       &lt;numeric&gt;   &lt;logical&gt;
+f1_c1  0.0973765        TRUE
+f1_c10 0.9299896       FALSE
+f1_c11 0.7172020       FALSE
+f1_c12 0.7863576       FALSE
+f1_c13 0.8624393       FALSE
+f1_c14 0.4683376        TRUE</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># visualize quality scores &amp; highlight flagged cells</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>thm <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="fu">theme_void</span>(), <span class="fu">ggtitle</span>(<span class="st">""</span>), <span class="fu">coord_equal</span>())</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCentroids</span>(cos, <span class="at">colourBy=</span><span class="st">"QC_score"</span>) <span class="sc">+</span> thm <span class="sc">+</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plotCentroids</span>(cos, <span class="at">colourBy=</span><span class="st">"low_qcscore"</span>) <span class="sc">+</span> thm <span class="sc">+</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">guides</span>(<span class="at">col=</span><span class="fu">guide_legend</span>(<span class="at">override.aes=</span><span class="fu">list</span>(<span class="at">size=</span><span class="dv">2</span>))) <span class="sc">+</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"lavender"</span>, <span class="st">"blue"</span>)) <span class="sc">+</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">legend.key.size=</span>grid<span class="sc">::</span><span class="fu">unit</span>(<span class="dv">0</span>, <span class="st">"pt"</span>)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/SpaceTrooper-plot-score-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see how the QC score flags several cells close to the tissue border as well as cells close to the FOVs borders.</p>
+</section>
+</section>
+<section id="sec-img-quality-control-fil" class="level2">
+<h2 class="anchored" data-anchor-id="sec-img-quality-control-fil">Filtering</h2>
+<p>Using <em><a href="https://bioconductor.org/packages/3.23/SpaceTrooper">SpaceTrooper</a></em>’s quality score, we will filter the CosMx dataset which would exclude about 7% of cells.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fraction of low-quality CosMx cells</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(cos<span class="sc">$</span>low_qcscore)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.07242168</code></pre>
+</div>
+</div>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In a stringent analysis, we may want to remove low-quality cells, but this has to be done with caution: <strong>before excluding any cells, it is recommendable to inspect where these fall in the tissue</strong>. We would expect low-quality cells to be distributed randomly, and otherwise to accumulate at the tissue or FOV borders or in regions were tissue was, for example, smudged, detached, necrotic etc.</p>
+<p>In general, <strong>spatially organized clusters of excluded cells might indicate a bias towards excluding specific types of cells</strong> (e.g., some immune cells tend to be smaller or might otherwise contain fewer transcripts due to the panel design). Whenever possible, we advice readers to cross-check visualizations like the following with a corresponding H&amp;E stain of the tissue, considering possible experimental faults as well as their prior knowledge on tissue pathology.</p>
+</section>
+</section>
+<section id="intermediate-processing" class="level1 page-columns page-full">
+<h1>Intermediate processing</h1>
+<p>For the sake of runtime, we will perform downstream analyses only on a small portion of the tissue, defined by the following FOVs:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">72</span><span class="sc">:</span><span class="dv">74</span>, <span class="dv">90</span><span class="sc">:</span><span class="dv">92</span>, <span class="dv">97</span><span class="sc">:</span><span class="dv">99</span>, <span class="dv">114</span><span class="sc">:</span><span class="dv">116</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plotZoomFovsMap</span>(cos, <span class="at">fovs=</span>fs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/subset-fovs-cosmx-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>sub <span class="ot">&lt;-</span> cos[, cos<span class="sc">$</span>fov <span class="sc">%in%</span> fs]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="normalization" class="level2">
+<h2 class="anchored" data-anchor-id="normalization">Normalization</h2>
+<p>Normalization is a critical step in the analysis of transcriptomics and other high-throughput biological data, aiming to remove technical variability while preserving true biological signals.</p>
+<p>In single-cell RNA sequencing, normalization aims at removing differences in sequencing coverage between libraries (cells). Such differences in <em>library size</em> are typically accounted for by scaling the counts in each cell by a size factor, which is often computed as the total number of counts for that cell (or a robust variant thereof); see <a href="https://bioconductor.org/books/release/OSCA.basic/normalization.html">OSCA</a>.</p>
+<p>Single-cell normalization methods have been widely used for the analysis of spatial transcriptomics (ST) data, given the similarity between the two technologies, which both yield count data. While this is justifiable for sequencing-based ST technologies, it is less clear that this is appropriate for imaging-based ones.</p>
+<p>In fact, in imaging-based ST, the total number of counts is driven by the number of probes that successfully hybridize to their target transcripts within each cell and not by the sequencing coverage. It is hence less clear that this leads to the same compositional biases as in sequencing platforms. Moreover, these technologies often employ targeted gene panels rather than whole-transcriptome profiling, which may lead to confounding between total counts and biology, as shown by <span class="citation" data-cites="Atta2024-gene-count">Atta et al. (<a href="#ref-Atta2024-gene-count" role="doc-biblioref">2024</a>)</span> and <span class="citation" data-cites="Bhuva2024-library-size">Bhuva et al. (<a href="#ref-Bhuva2024-library-size" role="doc-biblioref">2024</a>)</span>.</p>
+<section id="cell-area-based-normalization" class="level3">
+<h3 class="anchored" data-anchor-id="cell-area-based-normalization">Cell area-based normalization</h3>
+<p>An alternative to log-library size normalization is normalization by cell area (or volume). In principle, this is equivalent to assuming a constant transcription rate across cells and focusing on transcript density, rather than transcript counts, as a measure of gene expression.</p>
+<p>Nevertheless, it is important to highlight that cell area itself is not known a priori, but rather estimated through segmentation algorithms that may introduce errors, which can impact the final results.</p>
+<p>To compute area-derived size factors, we can use the <code>cell_area</code> column in the <code>colData</code> of the <code>spe</code> object, which contains the area of each cell as estimated by the segmentation.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># cell area-based normalization</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>sfs <span class="ot">&lt;-</span> (. <span class="ot">&lt;-</span> sub<span class="sc">$</span>Area) <span class="sc">/</span> <span class="fu">median</span>(.)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>sub <span class="ot">&lt;-</span> <span class="fu">normalizeRnaCounts.se</span>(sub, <span class="at">size.factors=</span>sfs)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="extension-comparing-normalization-methods" class="level3">
+<h3 class="anchored" data-anchor-id="extension-comparing-normalization-methods">Extension: Comparing normalization methods</h3>
+<p>Log-library size normalization is the simplest normalization strategy and the default option in several single-cell RNA-seq workflows. It normalizes the data by dividing each count by the column sums and rescaling them so that the original scale of the counts is preserved. Finally, the resulting normalized data are log-transformed after adding a pseudo-count, typically one, to avoid issues with the log of zero.</p>
+<p>For the purposes of demonstration, we will use a 313-plex Xenium data (10x Genomics) of a human breast cancer biopsy section from <span class="citation" data-cites="Janesick2023-high-res"><span class="nocase">Janesick et al.</span> (<a href="#ref-Janesick2023-high-res" role="doc-biblioref">2023</a>)</span>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>spe <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"img-spe_qc.rds"</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>id <span class="ot">&lt;-</span> <span class="st">"Xenium_HumanBreast1_Janesick"</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>pa <span class="ot">&lt;-</span> <span class="fu">OSTA.data_load</span>(id, <span class="at">mol=</span><span class="cn">FALSE</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(td <span class="ot">&lt;-</span> <span class="fu">tempfile</span>())</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">unzip</span>(pa, <span class="st">"annotation.csv"</span>, <span class="at">exdir=</span>td)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="fu">list.files</span>(td, <span class="at">full.names=</span><span class="cn">TRUE</span>))</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co"># add annotations as cell metadata</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>cs <span class="ot">&lt;-</span> <span class="fu">match</span>(spe<span class="sc">$</span>cell_id, df<span class="sc">$</span>Barcode)</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>spe<span class="sc">$</span>Label <span class="ot">&lt;-</span> df<span class="sc">$</span>Annotation[cs]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>As a baseline, we will apply log-library size normalization, as implemented in the <em><a href="https://bioconductor.org/packages/3.23/scrapper">scrapper</a></em> package. Note that the <code>normalizeRnaCounts.se</code> function adds a new assay named <code>logcounts</code> to the <code>spe</code> object, which contains the normalized expression values on the log scale.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>spe <span class="ot">&lt;-</span> spe[, <span class="fu">colSums</span>(<span class="fu">assay</span>(spe, <span class="st">"counts"</span>)) <span class="sc">&gt;</span> <span class="dv">0</span>]</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>spe <span class="ot">&lt;-</span> <span class="fu">normalizeRnaCounts.se</span>(spe)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>spe<span class="sc">$</span>sf_lib <span class="ot">&lt;-</span> <span class="fu">sizeFactors</span>(spe)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">assayNames</span>(spe)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "counts"    "logcounts"</code></pre>
+</div>
+</div>
+<p>We will also normalise by area-derived size factors as a comparison.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>spe<span class="sc">$</span>sf_area <span class="ot">&lt;-</span> (. <span class="ot">&lt;-</span> spe<span class="sc">$</span>cell_area) <span class="sc">/</span> <span class="fu">median</span>(.)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>spe <span class="ot">&lt;-</span> <span class="fu">normalizeRnaCounts.se</span>(spe, </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">size.factors=</span>spe<span class="sc">$</span>sf_area,</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">output.name=</span><span class="st">"normalized_by_area"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We can check the distribution of library and area-derived size factors across cell types, to highlight any potential confounding variables:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">colData</span>(spe), <span class="fu">spatialCoords</span>(spe))</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y=</span>sf_lib)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Library size factors"</span>) </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y=</span>sf_area)) <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">"Area-derived factors"</span>) </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">&amp;</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(Label, <span class="at">fill=</span>Label)) <span class="sc">&amp;</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Cell type"</span>, <span class="at">y=</span><span class="st">"Size factor"</span>) <span class="sc">&amp;</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">unname</span>(pals<span class="sc">::</span><span class="fu">tableau20</span>())) <span class="sc">&amp;</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">&amp;</span> <span class="fu">theme</span>(</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">aspect.ratio=</span><span class="dv">1</span>,</span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position=</span><span class="st">"none"</span>,</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">hjust=</span><span class="fl">0.5</span>),</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/plot-size-factors-boxplot-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can clearly see that library size factors of tumor cells are systematically higher than those of other cell types, which is a sign of confounding between library size and biology.</p>
+<p>We can also compare the area-derived scaling factors with the library size factors:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(sf_area, sf_lib)) <span class="sc">+</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">shape=</span><span class="dv">16</span>, <span class="at">stroke=</span><span class="dv">0</span>, <span class="at">size=</span><span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_abline</span>(<span class="at">linewidth=</span><span class="fl">0.4</span>, <span class="at">col=</span><span class="st">"blue"</span>) <span class="sc">+</span> </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>Label) <span class="sc">+</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Area-derived factor"</span>, <span class="at">y=</span><span class="st">"Library size factor"</span>) <span class="sc">+</span> </span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">ggtitle</span>(<span class="st">"Relation between area-derived and library size factors"</span>) <span class="sc">+</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_equal</span>() <span class="sc">+</span> <span class="fu">theme_bw</span>() <span class="sc">+</span> <span class="fu">theme</span>(</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">hjust=</span><span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/plot-size-factors-scatter-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>While there is a general correlation between total counts and cell area, the relationship is cell-type specific, with tumor cells showing systematically higher counts for a given area, and stromal cells showing generally larger areas.</p>
+<p>This suggests that the choice of normalization may have a significant impact on downstream analyses, and should be carefully considered in the context of the specific dataset and biological questions at hand.</p>
+<p>We next look at the difference in normalized expression values between the two normalization methods, and select the top 10 genes that show the largest differences.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>mean_libs <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(<span class="fu">assays</span>(spe)<span class="sc">$</span>logcounts)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>mean_area <span class="ot">&lt;-</span> <span class="fu">rowMeans</span>(<span class="fu">assays</span>(spe)<span class="sc">$</span>normalized_by_area)</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>diff <span class="ot">&lt;-</span> <span class="fu">abs</span>(mean_libs <span class="sc">-</span> mean_area)</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>ord <span class="ot">&lt;-</span> <span class="fu">order</span>(diff, <span class="at">decreasing=</span><span class="cn">TRUE</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>top_diff <span class="ot">&lt;-</span> diff[ord[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]]</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(top_diff)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "EPCAM"   "KRT8"    "KRT7"    "TACSTD2" "GATA3"   "CD9"     "FOXA1"  
+ [8] "FASN"    "MLPH"    "SCD"    </code></pre>
+</div>
+</div>
+<p>By looking at the top genes, we can see several epithelial cell markers, such as EPCAM, KRT8, and KRT7.</p>
+<p>Interestingly, looking at the expression of EPCAM across the tissue, we can see that area normalization enhances the contrast between tumor and non-tumor regions, while library size normalization yields a more diffuse expression pattern.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>cd <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">colData</span>(spe), <span class="fu">spatialCoords</span>(spe))</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>mx <span class="ot">&lt;-</span> <span class="fu">logcounts</span>(spe)[ord[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>], ]</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>df_ls <span class="ot">&lt;-</span> <span class="fu">cbind</span>(cd, <span class="fu">as.matrix</span>(<span class="fu">t</span>(mx)))</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>mx <span class="ot">&lt;-</span> <span class="fu">assay</span>(spe, <span class="st">"normalized_by_area"</span>)[ord[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>], ]</span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>df_area <span class="ot">&lt;-</span> <span class="fu">cbind</span>(cd, <span class="fu">as.matrix</span>(<span class="fu">t</span>(mx)))</span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_ls) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Library size normalization"</span>)</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df_area) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Area normalization"</span>) </span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">&amp;</span> </span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(</span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">aes</span>(x_centroid, y_centroid, <span class="at">col=</span>EPCAM), </span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">shape=</span><span class="dv">16</span>, <span class="at">stroke=</span><span class="dv">0</span>, <span class="at">size=</span><span class="fl">0.4</span>) <span class="sc">&amp;</span></span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_color_viridis_c</span>() <span class="sc">&amp;</span> <span class="fu">coord_equal</span>() <span class="sc">&amp;</span> </span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>() <span class="sc">&amp;</span> <span class="fu">theme</span>(<span class="at">legend.position=</span><span class="st">"bottom"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/plot-genes-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This is even clearer when looking at the expression of EPCAM stratified by cell type.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>(p1 <span class="sc">+</span> p2) <span class="sc">&amp;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_boxplot</span>(</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">aes</span>(Label, EPCAM, <span class="at">fill=</span>Label), </span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">outlier.shape=</span><span class="dv">16</span>, <span class="at">outlier.stroke=</span><span class="dv">0</span>) <span class="sc">&amp;</span></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">unname</span>(pals<span class="sc">::</span><span class="fu">tableau20</span>())) <span class="sc">&amp;</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Cell type"</span>, <span class="at">y=</span><span class="st">"EPCAM expression"</span>) <span class="sc">&amp;</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>() <span class="sc">&amp;</span> <span class="fu">theme</span>(</span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">aspect.ratio=</span><span class="dv">1</span>,</span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position=</span><span class="st">"none"</span>,</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor=</span><span class="fu">element_blank</span>(),</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">hjust=</span><span class="fl">0.5</span>),</span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle=</span><span class="dv">45</span>, <span class="at">hjust=</span><span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/plot-genes-box-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Spatially-aware normalization
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em><a href="https://bioconductor.org/packages/3.23/SpaNorm">SpaNorm</a></em> <span class="citation" data-cites="Salim2025-SpaNorm">(<a href="#ref-Salim2025-SpaNorm" role="doc-biblioref">Salim et al. 2025</a>)</span> is a spatially-aware normalization method that uses spatial information alongside gene expression to decompose spatially-smoothed variation into a technical and biological component. Using generalized linear models and percentile-invariant adjusted counts, <code>SpaNorm</code> provides normalized expression values for downstream analyses. [Given the high computational cost of <code>SpaNorm</code>, we do not run it here; we refer to the package vignette for details.]</p>
+</div>
+</div>
+</section>
+</section>
+<section id="cell-type-annotation" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="cell-type-annotation">Cell Type Annotation</h2>
+<p>Here, we use the <span class="citation" data-cites="zeisel2015cell"><span class="nocase">Zeisel et al.</span> (<a href="#ref-zeisel2015cell" role="doc-biblioref">2015</a>)</span> dataset as a reference to annotate the cell types with <em><a href="https://bioconductor.org/packages/3.23/SingleR">SingleR</a></em>.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>sceZ <span class="ot">&lt;-</span> <span class="fu">ZeiselBrainData</span>()</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>sceZ <span class="ot">&lt;-</span> <span class="fu">normalizeRnaCounts.se</span>(sceZ)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">SingleR</span>(</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">test=</span>sub, <span class="at">ref=</span>sceZ, </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">de.method=</span><span class="st">"wilcox"</span>,</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">labels=</span>sceZ<span class="sc">$</span>level1class)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>sub<span class="sc">$</span>SingleR_label <span class="ot">&lt;-</span> <span class="fu">factor</span>(pred<span class="sc">$</span>pruned.labels)</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>nk <span class="ot">&lt;-</span> <span class="fu">nlevels</span>(sub<span class="sc">$</span>SingleR_label)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>pal <span class="ot">&lt;-</span> <span class="fu">hcl.colors</span>(nk, <span class="st">"Spectral"</span>)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plotPolygons</span>(sub, </span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">colourBy=</span><span class="st">"SingleR_label"</span>) <span class="sc">+</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>pal)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/annot-cosmx-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Note that the annotation performed here is a transfer label from a reference dataset that only partially matches with the tissue under study and purposely annotated at a coarse level (level 1). Ideally, one can use a more appropriate reference dataset, or better yet, build a custom reference from single-cell RNA-seq data of the same tissue.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>A different, often preferable, approach consists of using, in addition to the gene expression profiles, the image data and the spatial context of the cells. <em><a href="https://github.com/Nanostring-Biostats/InSituType">InSituType</a></em> <span class="citation" data-cites="danaher2022insitutype">(<a href="#ref-danaher2022insitutype" role="doc-biblioref"><span class="nocase">Danaher et al.</span> 2022</a>)</span> provides a framework to perform such analysis in unsupervised, semi-supervised, or supervised manners. Please refer to its documentation for more details.</p>
+</div></div></section>
+<section id="marker-genes" class="level2">
+<h2 class="anchored" data-anchor-id="marker-genes">Marker genes</h2>
+<p>Here, we identify cluster-related spatially-variable genes using the <em><a href="https://bioconductor.org/packages/3.23/DESpace">DESpace</a></em> package <span class="citation" data-cites="Cai2024-DESpace">(<a href="#ref-Cai2024-DESpace" role="doc-biblioref">Cai et al. 2024</a>)</span>. In this workflow, we use this as a way to identify marker genes for the cell types annotated above.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">svg_test</span>(<span class="at">spe=</span>sub, <span class="at">cluster_col=</span><span class="st">"SingleR_label"</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(res<span class="sc">$</span>gene_results)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        gene_id       LR   logCPM PValue FDR
+Itm2a     Itm2a 2473.574 11.05636      0   0
+Flt1       Flt1 2446.949 11.07687      0   0
+Cldn5     Cldn5 2663.111 11.14306      0   0
+Gja1       Gja1 4932.541 11.33572      0   0
+Bcan       Bcan 3684.278 11.64762      0   0
+Gpr37l1 Gpr37l1 4915.203 11.34752      0   0</code></pre>
+</div>
+</div>
+<p>We focus on the genes with the smallest p-values, and compute the average expression of each gene in each cell type. We can visualize this with a heatmap.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> res<span class="sc">$</span>gene_results</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>gs <span class="ot">&lt;-</span> df<span class="sc">$</span>gene_id[<span class="fu">rank</span>(df<span class="sc">$</span>PValue, <span class="at">ties.method=</span><span class="st">"min"</span>) <span class="sc">==</span> <span class="dv">1</span>]</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>mu <span class="ot">&lt;-</span> <span class="fu">t</span>(<span class="fu">apply</span>(<span class="fu">counts</span>(sub)[gs, ], <span class="dv">1</span>, tapply, sub<span class="sc">$</span>SingleR_label, mean))</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(<span class="fu">t</span>(mu), </span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">scale=</span><span class="st">"column"</span>, <span class="at">show_colnames=</span><span class="cn">FALSE</span>,</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">cluster_rows=</span><span class="cn">TRUE</span>, <span class="at">cluster_cols=</span><span class="cn">TRUE</span>, </span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">main=</span><span class="st">"Average expression of top SVGs per cell type"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/plt-svg-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can also visualize the spatial distribution of some of these genes, e.g., Mbp that marks oligodendrocytes, and Calm1, Calm2, and Snap25 that mark different subsets of neurons. Note also how some genes show a difference of expression within the pyramidal neuron population, suggesting the presence of subtypes.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>gs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Mbp"</span>, <span class="st">"Calm1"</span>, <span class="st">"Calm2"</span>, <span class="st">"Snap25"</span>)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>ps <span class="ot">&lt;-</span> <span class="fu">lapply</span>(gs, \(g) {</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    sub[[g]] <span class="ot">&lt;-</span> <span class="fu">logcounts</span>(sub)[g, ]</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">plotPolygons</span>(sub, <span class="at">colourBy=</span>g) <span class="sc">+</span> <span class="fu">ggtitle</span>(g)</span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>}) </span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>dy <span class="ot">&lt;-</span> <span class="fu">range</span>(<span class="fu">logcounts</span>(sub)[gs, ])</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a><span class="fu">wrap_plots</span>(ps, <span class="at">guides=</span><span class="st">"collect"</span>) <span class="sc">&amp;</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_fill_viridis_c</span>(</span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"expression"</span>, </span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">limits=</span>dy, <span class="at">breaks=</span>dy,</span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">labels=</span><span class="fu">c</span>(<span class="st">"low"</span>, <span class="st">"high"</span>)) <span class="sc">&amp;</span></span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">plot.title=</span><span class="fu">element_text</span>(<span class="at">hjust=</span><span class="fl">0.5</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/plt-svg-genes-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="neighborhood-based-gene-expression-analyses" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="neighborhood-based-gene-expression-analyses">Neighborhood-based gene expression analyses</h2>
+<p>We start by creating a cell neighborhood graph, based on a distance threshold of 50 microns. To do so, we use the <em><a href="https://bioconductor.org/packages/3.23/SpatialFeatureExperiment">SpatialFeatureExperiment</a></em> package <span class="citation" data-cites="Moses2023-Voyager">(<a href="#ref-Moses2023-Voyager" role="doc-biblioref">Moses et al. 2023</a>)</span></p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Which cell is considered a neighbour?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>findSpatialNeighbors</code> function, using the <code>poly2nb</code> method builds a neighbours list based on polygons with contiguous boundaries, that is sharing one or more boundary points. Boundary points less than <code>snap</code> distance apart are considered to indicate contiguity; used both to find candidate and actual neighbours. The default condition to be considered a ‘neighbour cell’ requires that at least one single shared boundary point meets the contiguity condition.</p>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="spatial-neighbours.jpg" class="img-fluid figure-img"></p>
+<figcaption>Diagram of how the <code>findSpatialNeighbors</code> function works.</figcaption>
+</figure>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Note that an alternative approach uses the <span class="math inline">\(k\)</span> nearest neighbors (kNN) method to define the neighborhood graph. Here, we prefer to use a distance-based approach, as it better captures the morphological structure of this tissue area.</p>
+</div></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># convert to SFE &amp; remove cells with NA labels</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>sfe <span class="ot">&lt;-</span> <span class="fu">as</span>(sub, <span class="st">"SpatialFeatureExperiment"</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>sfe <span class="ot">&lt;-</span> sfe[, <span class="sc">!</span><span class="fu">is.na</span>(sfe<span class="sc">$</span>SingleR_label)]</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co"># this is needed for Voyager's plotting functions</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(sfe<span class="sc">$</span>polygons)[<span class="dv">6</span>] <span class="ot">&lt;-</span> <span class="st">"geometry"</span></span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a><span class="fu">st_geometry</span>(sfe<span class="sc">$</span>polygons) <span class="ot">&lt;-</span> <span class="st">"geometry"</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="fu">colGeometry</span>(sfe, <span class="st">"cellSeg"</span>) <span class="ot">&lt;-</span> sfe<span class="sc">$</span>polygons</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colGraph</span>(sfe, <span class="st">"poly2nb"</span>) <span class="ot">&lt;-</span> </span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">findSpatialNeighbors</span>(sfe,</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">type=</span><span class="st">"cellSeg"</span>, </span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">method=</span><span class="st">"poly2nb"</span>, </span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">style=</span><span class="st">"W"</span>, <span class="at">snap=</span><span class="dv">50</span>)</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a><span class="fu">plotColGraph</span>(sfe, </span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">colGraphName=</span><span class="st">"poly2nb"</span>, </span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">colGeometryName=</span><span class="st">"cellSeg"</span>) <span class="sc">+</span> </span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/cci-graph-cosmx-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Given the neighborhood graph, we can calculate local measures of spatial autocorrelation for specific genes in the dataset.</p>
+<p>Here, we focus on Snap25 and Calm1, neuronal marker genes identified above that show interesting spatial expression distributions (see above). First, we compute the local Moran’s I coefficient.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Local Moran’s I explained in simple terms
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For each cell, the local Moran’s I coefficient is the product of a cell’s deviation from the global mean expression and the average deviation of its neighbours. Positive values indicate the cell is surrounded by similarly-expressing neighbours (a local cluster, either high or lowly expressed); negative values indicate it sits among dissimilar neighbours (a spatial outlier).</p>
+<p>Interpretation of coefficient:</p>
+<ul>
+<li>Ii &gt; 0 → cellular expression similar to neighbours (hot/cold spots)</li>
+<li>Ii = 0 → minimal local spatial association</li>
+<li>Ii &lt; 0 → cellular expression different from neighbours (outliers)</li>
+</ul>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="local-morans.jpg" class="img-fluid figure-img"></p>
+<figcaption>Diagram illustrating how to interpret local Moran’s I coefficient Ii.</figcaption>
+</figure>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>gs <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Snap25"</span>, <span class="st">"Calm1"</span>)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>sfe <span class="ot">&lt;-</span> <span class="fu">runUnivariate</span>(sfe,</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">features=</span>gs,</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">type=</span><span class="st">"localmoran"</span>,</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">zero.policy=</span><span class="cn">TRUE</span>,</span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">colGraphName=</span><span class="st">"poly2nb"</span>,</span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">colGeometryName=</span><span class="st">"cellSeg"</span>)</span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plotLocalResult</span>(sfe, </span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">name=</span><span class="st">"localmoran"</span>,</span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">features=</span>gs, <span class="at">ncol=</span><span class="dv">2</span>,</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">colGeometryName=</span><span class="st">"cellSeg"</span>,</span>
+<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">divergent=</span><span class="cn">TRUE</span>, <span class="at">diverge_center=</span><span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/cci-moran-snap25-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># to view statistics for individual genes</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gene_result &lt;- localResult(sfe, type = "localmoran", feature = "Snap25")</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>From the plots, we can see that Snap25 shows positive spatial autocorrelation in a very localized part of the tissue, while Calm1 shows a more diffuse autocorrelation structure.</p>
+<p>We focus on Snap25 and visualize its autocorrelation structure using a Moran scatter plot, which shows the relationship between the expression of the gene in each cell and the average expression in its neighbors.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>sfe <span class="ot">&lt;-</span> <span class="fu">runUnivariate</span>(sfe,</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">feature=</span>gs[<span class="dv">1</span>],</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">zero.policy=</span><span class="cn">TRUE</span>,</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">type=</span><span class="st">"moran.plot"</span>,</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">colGraphName=</span><span class="st">"poly2nb"</span>,</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">colGeometryName=</span><span class="st">"cellSeg"</span>)</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="fu">moranPlot</span>(sfe,</span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">feature=</span>gs[<span class="dv">1</span>],</span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">graphName=</span><span class="st">"poly2nb"</span>,</span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">swap_rownames=</span><span class="st">"symbol"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/cci-moran-scatter-snap25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can then classify cells based on the significance of their local Moran’s I values, and visualize the resulting clusters in the spatial context.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">localResults</span>(sfe)[[<span class="st">"localmoran"</span>]][[<span class="dv">1</span>]]</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>res<span class="sc">$</span>locClust <span class="ot">&lt;-</span> <span class="fu">with</span>(res, <span class="fu">ifelse</span>(</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">-log10p_adj</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="sc">-</span><span class="fu">log10</span>(<span class="fl">0.05</span>), </span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>(mean), <span class="st">"non-significant"</span>))</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">localResults</span>(sfe)[[<span class="st">"localmoran"</span>]][[<span class="dv">1</span>]] <span class="ot">&lt;-</span> res</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plotLocalResult</span>(sfe,</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">features=</span>gs[<span class="dv">1</span>],</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">name=</span><span class="st">"localmoran"</span>,</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">attribute=</span><span class="st">"locClust"</span>,</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">colGeometryName=</span><span class="st">"cellSeg"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/cci-moran-scatter-sig-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In this case, we can see a significant positive autocorrelation in the lower left part of the structure, while the rest of the tissue does not show significant autocorrelation.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Note that other local spatial autocorrelation measures, such as Geary’s C coefficient and Getis-Ord statistic, as well as their global versions can be used for similar analyses <span class="citation" data-cites="Emons2025-pasta">Moses et al. (<a href="#ref-Moses2023-Voyager" role="doc-biblioref">2023</a>)</span>.</p>
+</div></div></section>
+<section id="cell-cell-interactions" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="cell-cell-interactions">Cell-cell interactions</h2>
+<p>To investigate the likelihood of cells interacting with each other based on spatial proximity, we look at point patterns, such as Ripley’s K function, and similar methods, using for instance the <em><a href="https://bioconductor.org/packages/3.23/spatialFDA">spatialFDA</a></em> package.</p>
+<p>Here, we use Besag’s L function to quantify the interaction between pyramidal CA1 neurons, and the interaction between them and oligodendrocytes (cross-L function).</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>L-functions explained in simple terms
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For the <em>univariate L-function</em>, we pick a single focal CA1 neuron, draw a circle of radius <code>r</code> around it, and count how many other CA1 neurons fall inside that circle. We do this for every CA1 neuron and every radius, then compare those counts to what you’d expect if the two cell types were scattered independently of each other (ie. randomly distributed)</p>
+<p>If CA1 neurons are seen together more often than by chance, they are clustered. If there are very few, the cell types are repelling each other.</p>
+<p>A cross-L function follows the same principle, except we are interested in the clustering of two cell types in relation to each other. Similarly, we count the number of other cell types within the radius of the focal cell type.</p>
+<p>Interpretation of L-score:</p>
+<ul>
+<li>L(r) &gt; 0 → cells are clustering at the specified distance given by <code>rSeq</code></li>
+<li>L(r) = 0 → cells are randomly distributed</li>
+<li>L(r) &lt; 0 → cells are repelling each other</li>
+</ul>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="cross-l-function-drawing.png" class="img-fluid figure-img"></p>
+<figcaption>Cross L-function diagram. (Drawn by Valerio Reffo)</figcaption>
+</figure>
+</div>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Other methods are available, such as Ripley’s K function, and the pair correlation function <span class="citation" data-cites="Emons2025-pasta">(<a href="#ref-Emons2025-pasta" role="doc-biblioref">Emons et al. 2025</a>)</span>. Note that here we are making the quite strong assumption of homogeneity of the point pattern, which is unrealistic in tissue biology. In particular, CSR is a naïve null model that does not take into account tissue structure and cell density variations across the tissue. Hence, these plots should be considered as exploratory analyses rather than formal hypothesis tests.</p>
+</div></div><div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">calcMetricPerFov</span>(</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">spe=</span>sub, <span class="at">fun=</span><span class="st">"Lest"</span>,</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">subsetby=</span><span class="st">"sample_id"</span>, </span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">marks=</span><span class="st">"SingleR_label"</span>,</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">selection=</span><span class="st">"pyramidal CA1"</span>,</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">rSeq=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">500</span>, <span class="at">l=</span><span class="dv">100</span>),</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">by=</span><span class="st">"sample_id"</span>, <span class="at">ncores=</span><span class="dv">1</span>)</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plotMetricPerFov</span>(res, </span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">theo=</span><span class="cn">TRUE</span>, <span class="at">correction=</span><span class="st">"iso"</span>, </span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"r"</span>, <span class="at">imageId=</span><span class="st">"sample_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/cci-CA1-l-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In this type of plots, the dashed line represents the theoretical value of the metric under complete spatial randomness (CSR). Values above this line indicate clustering, while values below indicate dispersion. Here, we can see that pyramidal CA1 neurons tend to cluster together, as expected.</p>
+
+<div class="no-row-height column-margin column-container"><div class="margin-aside">
+<p>Note that the L-function lays below the CSR line for the first 50 microns, which is a consequence of the cell segmentation that does not allow cells to overlap, indicating the impossibility of finding two cells at a distance smaller than their size.</p>
+</div></div><p>While in the plot above we focused on a single cell type, we can also investigate the interaction between two different cell types, e.g., pyramidal CA1 neurons and oligodendrocytes, using the cross-L function.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>res <span class="ot">&lt;-</span> <span class="fu">calcMetricPerFov</span>(</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">spe=</span>sub, <span class="at">fun=</span><span class="st">"Lcross"</span>, </span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">subsetby=</span><span class="st">"sample_id"</span>, </span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">marks=</span><span class="st">"SingleR_label"</span>,</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">selection=</span><span class="fu">c</span>(<span class="st">"pyramidal CA1"</span>, <span class="st">"oligodendrocytes"</span>),</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">rSeq=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">500</span>, <span class="at">l=</span><span class="dv">100</span>),</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">by=</span><span class="st">"sample_id"</span>, <span class="at">ncores=</span><span class="dv">1</span>)</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plotMetricPerFov</span>(res, </span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">theo=</span><span class="cn">TRUE</span>, <span class="at">correction=</span><span class="st">"iso"</span>, </span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x=</span><span class="st">"r"</span>, <span class="at">imageId=</span><span class="st">"sample_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="extended-workflow-cosmx_files/figure-html/cci-cross-l-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>In this case, we can see that pyramidal CA1 neurons and oligodendrocytes tend to be spatially segregated, as indicated by the cross-L function being below the CSR line.</p>
+<p>We only briefly discussed cell-cell interactions and spatial exploratory analyses here: we refer interested readers to the comprehensive documentation and tutorials available at the <a href="https://robinsonlabuzh.github.io/pasta/00-home.html">pasta</a> and <a href="https://pachterlab.github.io/voyager/">Voyager</a> websites.</p>
+</section>
+</section>
+<section id="appendix" class="level1">
+<h1>Appendix</h1>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="Further reading">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Further reading
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Bruker’s <a href="https://nanostring-biostats.github.io/CosMx-Analysis-Scratch-Space/about.html">CosMx Analysis Scratch Space</a> provides a large variety of (mostly R-based) tutorial-style notebooks – specifically for CosMx data from AtoMx exports – that include file handling, image exploration, quality control, and a variety of downstream analysis tasks.</p></li>
+<li><p><span class="citation" data-cites="He2022-CosMx">He et al. (<a href="#ref-He2022-CosMx" role="doc-biblioref">2022</a>)</span> (1K-plex) and <span class="citation" data-cites="Khafizov2024-CosMx">Khafizov et al. (<a href="#ref-Khafizov2024-CosMx" role="doc-biblioref">2024</a>)</span> (whole-transcriptome) describe the biotechnology underlying CosMx. While these studies were authored by industry-affiliated researchers, they remain informative references for understanding the platform (and potential data issues).</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="session-information" class="level1">
+<h1>Session information</h1>
+<p>For reproducibility, the exact R and package versions used to render the workshop are reported below.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>R version 4.6.1 (2026-06-24)
+Platform: x86_64-pc-linux-gnu
+Running under: Ubuntu 24.04.4 LTS
+
+Matrix products: default
+BLAS:   /usr/lib/x86_64-linux-gnu/openblas-pthread/libblas.so.3 
+LAPACK: /usr/lib/x86_64-linux-gnu/openblas-pthread/libopenblasp-r0.3.26.so;  LAPACK version 3.12.0
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+ [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+ [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+ [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+ [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+[11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+
+time zone: Etc/UTC
+tzcode source: system (glibc)
+
+attached base packages:
+[1] grid      stats4    stats     graphics  grDevices utils     datasets 
+[8] methods   base     
+
+other attached packages:
+ [1] Voyager_1.14.0                  spdep_1.4-2                    
+ [3] spData_2.3.5                    SpatialFeatureExperiment_1.14.0
+ [5] SpatialExperimentIO_1.4.0       spatialFDA_1.4.0               
+ [7] SpaceTrooper_1.2.0              SpatialExperiment_1.22.0       
+ [9] SingleR_2.14.2                  sf_1.1-3                       
+[11] scrapper_1.6.3                  scRNAseq_2.26.0                
+[13] scuttle_1.22.0                  SingleCellExperiment_1.34.0    
+[15] SummarizedExperiment_1.42.0     Biobase_2.72.0                 
+[17] GenomicRanges_1.64.0            Seqinfo_1.2.0                  
+[19] IRanges_2.46.0                  S4Vectors_0.50.2               
+[21] BiocGenerics_0.58.1             generics_0.1.4                 
+[23] MatrixGenerics_1.24.0           matrixStats_1.5.0              
+[25] ggspavis_1.18.1                 pheatmap_1.0.13                
+[27] patchwork_1.3.2                 OSTA.data_1.4.0                
+[29] tidyr_1.3.2                     dplyr_1.2.1                    
+[31] ggplot2_4.0.3                   DESpace_2.4.0                  
+
+loaded via a namespace (and not attached):
+  [1] R.methodsS3_1.8.2         dichromat_2.0-1          
+  [3] tiff_0.1-12               goftest_1.2-3            
+  [5] Biostrings_2.80.2         HDF5Array_1.40.0         
+  [7] TH.data_1.1-5             vctrs_0.7.3              
+  [9] spatstat.random_3.5-1     digest_0.6.39            
+ [11] png_0.1-9                 shape_1.4.6.1            
+ [13] proxy_0.4-29              pcaPP_2.0-5              
+ [15] gypsum_1.8.0              ggrepel_0.9.8            
+ [17] deldir_2.0-4              httpcode_0.3.0           
+ [19] alabaster.sce_1.12.0      magick_2.9.1             
+ [21] hdrcde_3.5.0              MASS_7.3-66              
+ [23] scico_1.5.0               foreach_1.5.2            
+ [25] withr_3.0.3               xfun_0.60                
+ [27] ggpubr_1.0.0              survival_3.8-9           
+ [29] memoise_2.0.1             crul_1.6.0               
+ [31] s2_1.1.12                 ggbeeswarm_0.7.3         
+ [33] zoo_1.9-0                 R.oo_1.27.1              
+ [35] DEoptimR_1.2-1            Formula_1.2-6            
+ [37] osfr_0.2.9                KEGGREST_1.52.2          
+ [39] otel_0.2.0                httr_1.4.9               
+ [41] rstatix_1.1.0             restfulr_0.0.17          
+ [43] rhdf5filters_1.24.1       rhdf5_2.56.1             
+ [45] spatialreg_1.4-3          UCSC.utils_1.8.0         
+ [47] units_1.0-1               curl_7.1.0               
+ [49] ScaledMatrix_1.20.0       h5mread_1.4.1            
+ [51] polyclip_1.10-7           ExperimentHub_3.2.2      
+ [53] SparseArray_1.12.2        fftwtools_0.9-11         
+ [55] pracma_2.4.6              evaluate_1.0.5           
+ [57] S4Arrays_1.12.0           BiocFileCache_3.2.0      
+ [59] glmnet_5.0                irlba_2.3.7              
+ [61] colorspace_2.1-3          filelock_1.0.3           
+ [63] isoband_0.3.0             spatstat.data_3.1-9      
+ [65] magrittr_2.0.5            viridis_0.6.5            
+ [67] lattice_0.22-9            mapproj_1.2.12           
+ [69] spatstat.geom_3.8-2       robustbase_0.99-7        
+ [71] triebeard_0.4.1           XML_3.99-0.24            
+ [73] cowplot_1.2.0             class_7.3-24             
+ [75] pillar_1.11.1             nlme_3.1-170             
+ [77] iterators_1.0.14          EBImage_4.54.0           
+ [79] compiler_4.6.1            beachmat_2.28.0          
+ [81] RSpectra_0.16-2           stringi_1.8.9            
+ [83] tensor_1.5.1              GenomicAlignments_1.48.0 
+ [85] fda_6.3.0                 crayon_1.5.3             
+ [87] abind_1.4-8               BiocIO_1.22.0            
+ [89] scater_1.40.2             pals_1.10                
+ [91] locfit_1.5-9.12           sp_2.2-3                 
+ [93] bit_4.6.0                 terra_1.9-50             
+ [95] sandwich_3.1-3            codetools_0.2-20         
+ [97] multcomp_1.4-32           BiocSingular_1.28.0      
+ [99] e1071_1.7-17              alabaster.ranges_1.12.0  
+[101] fds_1.9                   splines_4.6.1            
+[103] Rcpp_1.1.2                dbplyr_2.6.0             
+[105] sparseMatrixStats_1.24.0  knitr_1.51               
+[107] blob_1.3.0                BiocVersion_3.23.1       
+[109] AnnotationFilter_1.36.0   fs_2.1.0                 
+[111] DelayedMatrixStats_1.34.0 ggsignif_0.6.4           
+[113] tibble_3.3.1              Matrix_1.7-6             
+[115] statmod_1.5.2             tweenr_2.0.3             
+[117] pkgconfig_2.0.3           tools_4.6.1              
+[119] cachem_1.1.0              cigarillo_1.2.1          
+[121] RSQLite_3.53.3            viridisLite_0.4.3        
+[123] DBI_1.3.0                 fastmap_1.2.0            
+[125] rmarkdown_2.31            scales_1.4.0             
+[127] Rsamtools_2.28.0          broom_1.0.13             
+[129] AnnotationHub_4.2.2       coda_0.19-4.1            
+[131] BiocManager_1.30.27       LearnBayes_2.15.2        
+[133] carData_3.0-6             alabaster.schemas_1.12.0 
+[135] farver_2.1.2              mgcv_1.9-4               
+[137] wk_0.9.5                  yaml_2.3.12              
+[139] deSolve_1.42              rtracklayer_1.72.0       
+[141] cli_3.6.6                 purrr_1.2.2              
+[143] lifecycle_1.0.5           rainbow_3.8              
+[145] arrow_25.0.1              mvtnorm_1.4-2            
+[147] bluster_1.22.0            backports_1.5.1          
+[149] DropletUtils_1.32.0       BiocParallel_1.46.0      
+[151] gtable_0.3.6              rjson_0.2.23             
+[153] parallel_4.6.1            limma_3.68.5             
+[155] jsonlite_2.0.0            edgeR_4.10.5             
+[157] bitops_1.1-0              bit64_4.8.6              
+[159] assertthat_0.2.1          alabaster.matrix_1.12.0  
+[161] spatstat.utils_3.2-5      BiocNeighbors_2.6.0      
+[163] urltools_1.7.3.1          ggside_0.4.1             
+[165] marginaleffects_1.0.0     alabaster.se_1.12.0      
+[167] dqrng_0.4.1               zeallot_0.2.0            
+[169] spatstat.univar_3.2-0     R.utils_2.13.0           
+[171] lazyeval_0.2.3            alabaster.base_1.12.1    
+[173] htmltools_0.5.9           rappdirs_0.3.4           
+[175] ensembldb_2.36.1          glue_1.8.1               
+[177] httr2_1.3.0               XVector_0.52.0           
+[179] RCurl_1.98-1.20           mclust_6.1.3             
+[181] classInt_0.4-11           ks_1.15.3                
+[183] jpeg_0.1-11               gridExtra_2.3.1          
+[185] boot_1.3-32               igraph_2.3.3             
+[187] R6_2.6.1                  labeling_0.4.3           
+[189] GenomicFeatures_1.64.0    cluster_2.1.8.3          
+[191] Rhdf5lib_2.0.0            memuse_4.2-3             
+[193] GenomeInfoDb_1.48.0       DelayedArray_0.38.2      
+[195] tidyselect_1.2.1          vipor_0.4.7              
+[197] ProtGenerics_1.44.0       maps_3.4.3               
+[199] ggforce_0.5.0             car_3.1-5                
+[201] AnnotationDbi_1.74.0      sfheaders_0.4.5          
+[203] rsvd_1.0.5                KernSmooth_2.23-26       
+[205] S7_0.2.2                  BiocStyle_2.40.0         
+[207] data.table_1.18.6.1       htmlwidgets_1.6.4        
+[209] RColorBrewer_1.1-3        rlang_1.3.0              
+[211] spatstat.sparse_3.2-0     spatstat.explore_3.8-2   
+[213] ggnewscale_0.5.2          beeswarm_0.4.0           </code></pre>
+</div>
+</div>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Atta2024-gene-count" class="csl-entry" role="listitem">
+Atta, Lyla, Kalen Clifton, Manjari Anant, Gohta Aihara, and Jean Fan. 2024. <span>“Gene Count Normalization in Single-Cell Imaging-Based Spatially Resolved Transcriptomics.”</span> <em>Genome Biology</em> 25 (153). <a href="https://doi.org/10.1186/s13059-024-03303-w">https://doi.org/10.1186/s13059-024-03303-w</a>.
+</div>
+<div id="ref-Bhuva2024-library-size" class="csl-entry" role="listitem">
+Bhuva, Dharmesh D., Chin Wee Tan, Agus Salim, et al. 2024. <span>“Library Size Confounds Biology in Spatial Transcriptomics Data.”</span> <em>Genome Biology</em> 25 (99). <a href="https://doi.org/10.1186/s13059-024-03241-7">https://doi.org/10.1186/s13059-024-03241-7</a>.
+</div>
+<div id="ref-Cai2024-DESpace" class="csl-entry" role="listitem">
+Cai, Peiying, Mark D Robinson, and Simone Tiberi. 2024. <span>“DESpace: Spatially Variable Gene Detection via Differential Expression Testing of Spatial Clusters.”</span> <em>Bioinformatics</em> 40 (btae027, 2). <a href="https://doi.org/10.1093/bioinformatics/btae027">https://doi.org/10.1093/bioinformatics/btae027</a>.
+</div>
+<div id="ref-danaher2022insitutype" class="csl-entry" role="listitem">
+<span class="nocase">Danaher, Patrick, Edward Zhao, Zhi Yang, et al.</span> 2022. <span>“Insitutype: Likelihood-Based Cell Typing for Single Cell Spatial Transcriptomics.”</span> <em>bioRxiv</em>, 2022–10.
+</div>
+<div id="ref-Emons2025-pasta" class="csl-entry" role="listitem">
+Emons, Martin, Samuel Gunz, Helena L. Crowell, Izaskun Mallona, Reinhard Furrer, and Mark D. Robinson. 2025. <span>“Harnessing the Potential of Spatial Statistics for Spatial Omics Data with Pasta.”</span> <em>Nucleic Acids Research</em> 53 (17): gkaf870. <a href="https://doi.org/10.1038/s41467-022-28020-5">https://doi.org/10.1038/s41467-022-28020-5</a>.
+</div>
+<div id="ref-He2022-CosMx" class="csl-entry" role="listitem">
+He, Shanshan, Ruchir Bhatt, Carl Brown, et al. 2022. <span>“High-Plex Imaging of RNA and Proteins at Subcellular Resolution in Fixed Tissue by Spatial Molecular Imaging.”</span> <em>Nature Biotechnology</em> 40: 1794–806. <a href="https://doi.org/10.1038/s41587-022-01483-z">https://doi.org/10.1038/s41587-022-01483-z</a>.
+</div>
+<div id="ref-Janesick2023-high-res" class="csl-entry" role="listitem">
+<span class="nocase">Janesick, Amanda, Robert Shelansky, Andrew D. Gottscho, et al.</span> 2023. <span>“High Resolution Mapping of the Tumor Microenvironment Using Integrated Single-Cell, Spatial and in Situ Analysis.”</span> <em>Nature Communications</em> 14 (8353). <a href="https://doi.org/10.1038/s41467-023-43458-x">https://doi.org/10.1038/s41467-023-43458-x</a>.
+</div>
+<div id="ref-Khafizov2024-CosMx" class="csl-entry" role="listitem">
+Khafizov, Rustem, Erin Piazza, Yi Cui, et al. 2024. <span>“<span class="nocase">Sub-cellular imaging of the entire protein-coding human transcriptome (18933-plex) on FFPE tissue using spatial molecular imaging</span>.”</span> <em>bioRxiv</em>, 2024.11.27.625536. <a href="https://doi.org/10.1101/2024.11.27.625536">https://doi.org/10.1101/2024.11.27.625536</a>.
+</div>
+<div id="ref-Moses2023-Voyager" class="csl-entry" role="listitem">
+Moses, Lambda, Pétur Helgi Einarsson, Kayla Jackson, et al. 2023. <span>“Voyager: Exploratory Single-Cell Genomics Data Analysis with Geospatial Statistics.”</span> <em>bioRxiv</em>, ahead of print. <a href="https://doi.org/10.1101/2023.07.20.549945">https://doi.org/10.1101/2023.07.20.549945</a>.
+</div>
+<div id="ref-Salim2025-SpaNorm" class="csl-entry" role="listitem">
+Salim, Agus, Dharmesh D. Bhuva, Carissa Chen, et al. 2025. <span>“SpaNorm: Spatially-Aware Normalization for Spatial Transcriptomics Data.”</span> <em>Genome Biology</em> 26 (109). <a href="https://doi.org/10.1186/s13059-025-03565-y">https://doi.org/10.1186/s13059-025-03565-y</a>.
+</div>
+<div id="ref-zeisel2015cell" class="csl-entry" role="listitem">
+<span class="nocase">Zeisel, Amit, Ana B Muñoz-Manchado, Simone Codeluppi, et al.</span> 2015. <span>“Cell Types in the Mouse Cortex and Hippocampus Revealed by Single-Cell RNA-Seq.”</span> <em>Science</em> 347 (6226): 1138–42.
+</div>
+</div></section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="extended-workflow-cosmx_files/libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
