@@ -25,7 +25,7 @@ execute:
 Spatial transcriptomics introduces exciting opportunities and analytical challenges to investigate how tissue architecture and extracellular
 signalling within the microenvironment shape cellular identity and function across development, health, and disease. The multiple modalities of data - spatial coordinates, images and gene expression introduces greater potential to **interrogate advanced biological hypotheses**. However, the added complexity also introduces **technology-specific biases and artifacts**, together with important considerations during experimental design.
 
-The theory behind generating spatial data and discussion of biases, artifacts and experimental design are covered in the accompanying slides. Here, we will walk through a basic spatial transcriptomics analysis workflow using the Bioconductor ecosystem. Specifically, we will analyse 1k-plex CosMx data (Bruker) on mouse brain tissue.
+The theory behind generating spatial data and discussion of biases, artifacts and experimental design are covered in the accompanying slides. Here, we will walk through a basic spatial transcriptomics analysis workflow using the Bioconductor ecosystem. Specifically, we will analyse 1k-plex CosMx data (Bruker) on mouse brain tissue in this demo. Most of the content has been taken from [OSTA](https://bioconductor.org/books/release/OSTA/). For a more comprehensive discussion and in-depth analysis pipelines, please refer to the OSTA book.
 
 *First*, we will perform quality control and pre-processing where we explore how to meaningfully visualise spatial data and see how technical artifacts could manifest in the data. *Then*, we will characterise the data, including cell type annotatio and identification of marker genes. *Finally*, this demo will demonstrate the additional biological insights we can gain from leveraging spatial information such as neighbourhood analysis and cell-cell interaction analysis.
 
@@ -480,7 +480,7 @@ We can see how the QC score flags several cells close to the tissue border as we
 
 ## Filtering {#sec-img-quality-control-fil}
 
-Using `r BiocStyle::Biocpkg("SpaceTrooper")`s quality score, we will filter the CosMx dataset
+Using `r BiocStyle::Biocpkg("SpaceTrooper")`'s quality score, we will filter the CosMx dataset
 which would exclude about `r round(100*mean(cos$low_qcscore))`\% of cells.
 
 ```{r cos-ex}
@@ -538,7 +538,7 @@ sfs <- (. <- sub$Area) / median(.)
 sub <- normalizeRnaCounts.se(sub, size.factors=sfs)
 ```
 
-### Extension: Comparing Normalization Methods
+### Extension: Comparing normalization methods
 
 Log-library size normalization is the simplest normalization strategy and the default option in several single-cell RNA-seq workflows. It normalizes the data by dividing each count by the column sums and rescaling them so that the original scale of the counts is preserved. Finally, the resulting normalized data are log-transformed after adding a pseudo-count, typically one, to avoid issues with the log of zero.
 
