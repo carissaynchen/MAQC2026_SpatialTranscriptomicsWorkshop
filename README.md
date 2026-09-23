@@ -16,13 +16,13 @@ By the end of the workshop, participants will be equipped to make **informed dec
 
 **Total: 60-90 minutes**
 
-## Workshop slides
+## Workshop material
 
-Presentation slides for the day are available [here](https://drive.google.com/file/d/1WS8PrgcoxO14dqpT1_SLyBCT4DHOCYtK/view?usp=sharing)
+Presentation slides for the day are available [here](https://drive.google.com/file/d/1WS8PrgcoxO14dqpT1_SLyBCT4DHOCYtK/view?usp=sharing).
 
-## Tutorial set-up
+The pre-rendered HTML of the tutorial content can be accessed via: <https://carissaynchen.github.io/MAQC2026_SpatialTranscriptomicsWorkshop/>
 
-The session will cover basic spatial transcriptomics analysis using the Bioconductor ecosystem. 
+## Docker set-up
 
 All required packages and environment to run the workshop material can be accessed using a local Docker container. To do so, ensure that you have a containerisation software such as [OrbStack](https://orbstack.dev/) or [Docker](https://www.docker.com/products/docker-desktop/) installed.
 
@@ -62,5 +62,5 @@ docker run \
 
 ## Acknowledgements
 
-The workshop borrows existing material and explanations from the
+This workshop was hosted at the 2026 MAQC Conference in Brescia, Italy. It borrows existing material and explanations from the
 [Orchestrating Spatial Transcriptomics with Bioconductor (OSTA)]([https://bioconductor.org/books/release/OSCA/)(https://bioconductor.org/books/release/OSTA/) book.
